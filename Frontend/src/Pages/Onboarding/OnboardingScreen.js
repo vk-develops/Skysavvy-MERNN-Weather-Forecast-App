@@ -21,11 +21,19 @@ const OnboardingScreen = () => {
                     />
                     <View>
                         <Text
-                            className="text-[30px] text-white capitalize text-center"
+                            className="text-[26px] text-white capitalize text-center"
                             style={{ fontFamily: "jakartaSemiBold" }}
                         >
                             {" "}
-                            weather insights with SkySavvy's accuracy.
+                            weather insights with SkySavvy's accuracy
+                        </Text>
+                        <Text
+                            className="text-base text-slate-500 text-center pt-5"
+                            style={{ fontFamily: "jakartaRegular" }}
+                        >
+                            Install Bootstrap’s source Sass and JavaScript files
+                            via npm or Meteor. Package managed installs don’t
+                            full build scripts.
                         </Text>
                     </View>
                 </View>

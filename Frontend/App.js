@@ -6,10 +6,10 @@ import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
-        jakartaRegular: require("./assets/fonts/PlusJakartaSans-Regular.ttf"),
-        jakartaMedium: require("./assets/fonts/PlusJakartaSans-Medium.ttf"),
-        jakartaSemiBold: require("./assets/fonts/PlusJakartaSans-SemiBold.ttf"),
-        jakartaBold: require("./assets/fonts/PlusJakartaSans-Bold.ttf"),
+        plexRegular: require("./assets/fonts/IBMPlexSans-Regular.ttf"),
+        plexMedium: require("./assets/fonts/IBMPlexSans-Medium.ttf"),
+        plexSemiBold: require("./assets/fonts/IBMPlexSans-SemiBold.ttf"),
+        plexBold: require("./assets/fonts/IBMPlexSans-Bold.ttf"),
     });
 
     if (!fontsLoaded) {
