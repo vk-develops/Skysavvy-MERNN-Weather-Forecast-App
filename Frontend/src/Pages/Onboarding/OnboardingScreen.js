@@ -28,8 +28,8 @@ const OnboardingScreen = () => {
                             weather insights with SkySavvy's accuracy
                         </Text>
                         <Text
-                            className="text-base text-slate-500 text-center pt-[22px]"
-                            style={{ fontFamily: "plexMedium" }}
+                            className="text-base text-[#888] text-center pt-[22px]"
+                            style={{ fontFamily: "plexRegular" }}
                         >
                             Install Bootstrap’s source Sass and JavaScript files
                             via npm or Meteor. Package managed installs don’t
