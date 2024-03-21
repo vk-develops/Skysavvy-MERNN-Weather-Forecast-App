@@ -21,15 +21,15 @@ const OnboardingScreen = () => {
                     />
                     <View>
                         <Text
-                            className="text-[26px] text-white capitalize text-center"
-                            style={{ fontFamily: "jakartaSemiBold" }}
+                            className="text-[28px] text-white capitalize text-center"
+                            style={{ fontFamily: "plexSemiBold" }}
                         >
                             {" "}
                             weather insights with SkySavvy's accuracy
                         </Text>
                         <Text
-                            className="text-base text-slate-500 text-center pt-5"
-                            style={{ fontFamily: "jakartaRegular" }}
+                            className="text-base text-slate-500 text-center pt-[22px]"
+                            style={{ fontFamily: "plexMedium" }}
                         >
                             Install Bootstrap’s source Sass and JavaScript files
                             via npm or Meteor. Package managed installs don’t
