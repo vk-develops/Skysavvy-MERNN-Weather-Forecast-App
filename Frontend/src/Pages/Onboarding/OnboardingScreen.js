@@ -3,7 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import OnboardingImg from "../../../assets/Images/OnboardingImg.png";
 
-const OnboardingScreen = () => {
+const OnboardingScreen = ({ navigation }) => {
     return (
         <ScrollView>
             <LinearGradient
@@ -28,8 +28,8 @@ const OnboardingScreen = () => {
                             weather insights with SkySavvy's accuracy
                         </Text>
                         <Text
-                            className="text-base text-slate-500 text-center pt-[22px]"
-                            style={{ fontFamily: "plexMedium" }}
+                            className="text-base text-[#888] text-center pt-[22px]"
+                            style={{ fontFamily: "plexRegular" }}
                         >
                             Install Bootstrap’s source Sass and JavaScript files
                             via npm or Meteor. Package managed installs don’t
@@ -38,6 +38,7 @@ const OnboardingScreen = () => {
                     </View>
                     <View className="mt-12">
                         <TouchableOpacity
+                            onPress={() => navigation.navigate("AuthStack")}
                             activeOpacity={0.7}
                             className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                         >
