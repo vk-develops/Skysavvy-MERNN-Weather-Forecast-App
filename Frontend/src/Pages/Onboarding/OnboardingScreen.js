@@ -3,7 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import OnboardingImg from "../../../assets/Images/OnboardingImg.png";
 
-const OnboardingScreen = () => {
+const OnboardingScreen = ({ navigation }) => {
     return (
         <ScrollView>
             <LinearGradient
@@ -38,6 +38,7 @@ const OnboardingScreen = () => {
                     </View>
                     <View className="mt-12">
                         <TouchableOpacity
+                            onPress={() => navigation.navigate("AuthStack")}
                             activeOpacity={0.7}
                             className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                         >
