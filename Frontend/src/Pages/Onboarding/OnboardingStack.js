@@ -6,7 +6,11 @@ const Stack = createStackNavigator();
 
 const OnboardingStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
             <Stack.Screen
                 name="OnboardingScreen"
                 component={OnboardingScreen}

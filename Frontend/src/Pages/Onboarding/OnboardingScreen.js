@@ -1,16 +1,19 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 
 const OnboardingScreen = () => {
     return (
-        <View>
-            <Text
-                className="text-3xl"
-                style={{ fontFamily: "jakartaBold" }}
-            >
-                OnboardingScreen
-            </Text>
-        </View>
+        <ScrollView>
+            <LinearGradient
+                contentContainerStyle={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}
+                className="flex flex-1 h-screen"
+                colors={["#23227B", "#000236"]}
+            ></LinearGradient>
+        </ScrollView>
     );
 };
 
