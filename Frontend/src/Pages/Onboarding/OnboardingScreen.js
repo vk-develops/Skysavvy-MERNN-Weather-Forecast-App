@@ -4,7 +4,12 @@ import React from "react";
 const OnboardingScreen = () => {
     return (
         <View>
-            <Text>OnboardingScreen</Text>
+            <Text
+                className="text-3xl"
+                style={{ fontFamily: "jakartaBold" }}
+            >
+                OnboardingScreen
+            </Text>
         </View>
     );
 };
