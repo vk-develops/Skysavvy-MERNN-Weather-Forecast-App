@@ -1,7 +1,8 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import OnboardingScreen from "./src/Pages/Onboarding/OnboardingScreen";
+import OnboardingStack from "./src/Pages/Onboarding/OnboardingStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -16,12 +17,14 @@ export default function App() {
     }
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
             <StatusBar
                 backgroundColor="#23227B"
                 style="light"
             />
-            <OnboardingScreen />
+            <NavigationContainer>
+                <OnboardingStack />
+            </NavigationContainer>
         </SafeAreaView>
     );
 }
