@@ -28,7 +28,7 @@ const OnboardingScreen = ({ navigation }) => {
                             weather insights with SkySavvy's accuracy
                         </Text>
                         <Text
-                            className="text-base text-[#888] text-center pt-[22px]"
+                            className="text-base text-[#aaa] text-center pt-[22px]"
                             style={{ fontFamily: "plexRegular" }}
                         >
                             Install Bootstrap’s source Sass and JavaScript files
