@@ -33,7 +33,7 @@ const RegisterScreen = () => {
                                 className="text-[30px] text-white text-center"
                                 style={{ fontFamily: "plexSemiBold" }}
                             >
-                                Register
+                                Login
                             </Text>
                             <Text
                                 className="text-base text-[#aaa] text-center pt-[22px]"
@@ -45,20 +45,6 @@ const RegisterScreen = () => {
                             </Text>
 
                             <View className="mt-10">
-                                <View>
-                                    <Text
-                                        className="text-[17px] text-white"
-                                        style={{ fontFamily: "plexMedium" }}
-                                    >
-                                        Name:{" "}
-                                    </Text>
-                                    <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
-                                        placeholder="Enter your name"
-                                        placeholderTextColor={"#aaa"}
-                                        style={{ fontFamily: "plexRegular" }}
-                                    />
-                                </View>
                                 <View className="mt-6">
                                     <Text
                                         className="text-[17px] text-white"
@@ -82,7 +68,7 @@ const RegisterScreen = () => {
                                     </Text>
                                     <TextInput
                                         className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
-                                        placeholder="Enter a password"
+                                        placeholder="Enter your password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
                                     />
@@ -97,7 +83,7 @@ const RegisterScreen = () => {
                                         className="text-[20px] text-black text-center py-3"
                                         style={{ fontFamily: "plexMedium" }}
                                     >
-                                        Sign Up
+                                        Sign In
                                     </Text>
                                 </TouchableOpacity>
                             </View>
@@ -114,7 +100,7 @@ const RegisterScreen = () => {
                                         className="text-slate-300 text-lg"
                                         style={{ fontFamily: "plexRegular" }}
                                     >
-                                        Already a user{" "}
+                                        New user ?{" "}
                                     </Text>
 
                                     <TouchableOpacity activeOpacity={0.7}>
@@ -124,7 +110,7 @@ const RegisterScreen = () => {
                                                 fontFamily: "plexMedium",
                                             }}
                                         >
-                                            Sign In
+                                            Sign Up
                                         </Text>
                                     </TouchableOpacity>
                                 </View>
