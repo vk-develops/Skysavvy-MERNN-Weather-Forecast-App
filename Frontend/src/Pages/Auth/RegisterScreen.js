@@ -4,6 +4,7 @@ import {
     ScrollView,
     ImageBackground,
     TextInput,
+    TouchableOpacity,
 } from "react-native";
 import React from "react";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
@@ -53,17 +54,17 @@ const RegisterScreen = () => {
                                     </Text>
                                     <TextInput
                                         className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
-                                        placeholder="Enter your email"
+                                        placeholder="Enter your name"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
                                     />
                                 </View>
-                                <View>
+                                <View className="mt-6">
                                     <Text
                                         className="text-[17px] text-white"
                                         style={{ fontFamily: "plexMedium" }}
                                     >
-                                        Name:{" "}
+                                        Email:{" "}
                                     </Text>
                                     <TextInput
                                         className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
@@ -72,20 +73,33 @@ const RegisterScreen = () => {
                                         style={{ fontFamily: "plexRegular" }}
                                     />
                                 </View>
-                                <View>
+                                <View className="mt-6">
                                     <Text
                                         className="text-[17px] text-white"
                                         style={{ fontFamily: "plexMedium" }}
                                     >
-                                        Name:{" "}
+                                        Password:{" "}
                                     </Text>
                                     <TextInput
                                         className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
-                                        placeholder="Enter your email"
+                                        placeholder="Enter a password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
                                     />
                                 </View>
+                            </View>
+                            <View className="mt-12">
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
+                                >
+                                    <Text
+                                        className="text-[20px] text-black text-center py-3"
+                                        style={{ fontFamily: "plexMedium" }}
+                                    >
+                                        Sign Up
+                                    </Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
