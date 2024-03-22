@@ -101,6 +101,34 @@ const RegisterScreen = () => {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
+
+                            <View className="mt-6">
+                                <Text
+                                    className="text-white text-sm text-center"
+                                    style={{ fontFamily: "plexMedium" }}
+                                >
+                                    -- OR --
+                                </Text>
+                                <View className="flex items-center justify-center gap-[1px] flex-row mt-3">
+                                    <Text
+                                        className="text-slate-300 text-lg"
+                                        style={{ fontFamily: "plexRegular" }}
+                                    >
+                                        Already a user{" "}
+                                    </Text>
+
+                                    <TouchableOpacity activeOpacity={0.7}>
+                                        <Text
+                                            className=" text-yellow-400 text-lg"
+                                            style={{
+                                                fontFamily: "plexMedium",
+                                            }}
+                                        >
+                                            Sign In
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
                         </View>
                     </View>
                 </ImageBackground>
