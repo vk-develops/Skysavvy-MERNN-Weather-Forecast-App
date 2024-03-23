@@ -18,7 +18,7 @@ const RegisterScreen = ({ navigation }) => {
                     alignItems: "center",
                     justifyContent: "center",
                 }}
-                className="h-screen"
+                className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
                 <ImageBackground

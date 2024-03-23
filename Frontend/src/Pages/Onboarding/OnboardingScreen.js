@@ -36,7 +36,7 @@ const OnboardingScreen = ({ navigation }) => {
                             full build scripts.
                         </Text>
                     </View>
-                    <View className="mt-12">
+                    <View className="mt-12 mb-8">
                         <TouchableOpacity
                             onPress={() => navigation.navigate("AuthStack")}
                             activeOpacity={0.7}
