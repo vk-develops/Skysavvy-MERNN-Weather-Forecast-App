@@ -12,13 +12,13 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const RegisterScreen = ({ navigation }) => {
     return (
-        <ScrollView>
+        <ScrollView className="flex-1">
             <LinearGradient
                 contentContainerStyle={{
                     alignItems: "center",
                     justifyContent: "center",
                 }}
-                className="flex flex-1 h-screen"
+                className="h-screen"
                 colors={["#23227B", "#000236"]}
             >
                 <ImageBackground

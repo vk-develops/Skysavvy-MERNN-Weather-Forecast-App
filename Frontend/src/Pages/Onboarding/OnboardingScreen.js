@@ -5,13 +5,13 @@ import OnboardingImg from "../../../assets/Images/OnboardingImg.png";
 
 const OnboardingScreen = ({ navigation }) => {
     return (
-        <ScrollView>
+        <ScrollView className="flex-1">
             <LinearGradient
                 contentContainerStyle={{
                     alignItems: "center",
                     justifyContent: "center",
                 }}
-                className="flex flex-1 h-screen"
+                className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
                 <View className="px-4">
