@@ -19,7 +19,7 @@ const registerUser = asyncHandler(async (req, res) => {
         }
 
         //Email Validation
-        if (!isValidEmail) {
+        if (!isValidEmail(email)) {
             return res.status(400).json({
                 success: false,
                 message: "Registration failed. Invalid email format",
