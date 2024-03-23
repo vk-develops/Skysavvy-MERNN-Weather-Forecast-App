@@ -35,6 +35,9 @@ const registerUser = asyncHandler(async (req, res) => {
         });
 
         if (user) {
+            //Generating a token after registering
+            generateToken(res, user._id);
+
             //Destructuring the user details
             const { password, ...resetofUserDetails } = user._doc;
 
