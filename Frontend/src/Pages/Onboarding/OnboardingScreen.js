@@ -1,23 +1,30 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import {
+    View,
+    Text,
+    ScrollView,
+    Image,
+    TouchableOpacity,
+    Dimensions,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import OnboardingImg from "../../../assets/Images/OnboardingImg.png";
 
 const OnboardingScreen = ({ navigation }) => {
     return (
-        <ScrollView>
+        <ScrollView className="flex-1">
             <LinearGradient
                 contentContainerStyle={{
                     alignItems: "center",
                     justifyContent: "center",
                 }}
-                className="flex flex-1 h-screen"
+                className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
-                <View className="px-4">
+                <View className="px-4 flex items-center justify-center">
                     <Image
                         source={OnboardingImg}
-                        className="mt-4 w-full"
+                        className={`w-full`}
                     />
                     <View>
                         <Text
@@ -28,7 +35,7 @@ const OnboardingScreen = ({ navigation }) => {
                             weather insights with SkySavvy's accuracy
                         </Text>
                         <Text
-                            className="text-base text-[#888] text-center pt-[22px]"
+                            className="text-base text-[#aaa] text-center pt-[22px]"
                             style={{ fontFamily: "plexRegular" }}
                         >
                             Install Bootstrap’s source Sass and JavaScript files
@@ -36,14 +43,14 @@ const OnboardingScreen = ({ navigation }) => {
                             full build scripts.
                         </Text>
                     </View>
-                    <View className="mt-12">
+                    <View className="mt-12 mb-8">
                         <TouchableOpacity
                             onPress={() => navigation.navigate("AuthStack")}
                             activeOpacity={0.7}
                             className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                         >
                             <Text
-                                className="text-[20px] text-black text-center py-3"
+                                className="text-[20px] text-black text-center py-3 px-12"
                                 style={{ fontFamily: "plexMedium" }}
                             >
                                 Get Started
