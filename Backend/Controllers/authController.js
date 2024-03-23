@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import User from "../Models/userModel.js";
 import generateToken from "../Utils/generateToken.js";
+import { isValidEmail } from "../Validation/emailValidation.js";
 
 // @desc    Register users & and get a token
 // @route   POST /api/v1/users/auth/register
@@ -15,6 +16,14 @@ const registerUser = asyncHandler(async (req, res) => {
             return res
                 .status(400)
                 .json({ success: false, message: "All fields are neccessary" });
+        }
+
+        //Email Validation
+        if (!isValidEmail) {
+            return res.status(400).json({
+                success: false,
+                message: "Registration failed. Invalid email format",
+            });
         }
 
         //Check for existing user
