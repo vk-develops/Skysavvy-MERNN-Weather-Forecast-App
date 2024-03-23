@@ -10,7 +10,7 @@ import React from "react";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
     return (
         <ScrollView>
             <LinearGradient
@@ -103,7 +103,14 @@ const RegisterScreen = () => {
                                         New user ?{" "}
                                     </Text>
 
-                                    <TouchableOpacity activeOpacity={0.7}>
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            navigation.navigate(
+                                                "RegisterScreen"
+                                            )
+                                        }
+                                        activeOpacity={0.7}
+                                    >
                                         <Text
                                             className=" text-yellow-400 text-lg"
                                             style={{
