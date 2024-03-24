@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import connectDB from "./Config/db.js";
 import authRoute from "./Routes/authRoute.js";
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 8080;
 
 //Built-in Middlewares and Imported ones
 app.use(express.json());
+app.use(cors());
 
 //HTTP GET Method Test
 app.get("/api/v1/", (req, res) => {
