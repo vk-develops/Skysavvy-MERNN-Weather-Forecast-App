@@ -1,4 +1,6 @@
 import otpGenerator from "otp-generator";
+import nodeMailer from "nodemailer";
+import Mailgen from "mailgen";
 
 const generateOTP = () => {
     //Generating OTP
