@@ -16,7 +16,7 @@ const generateOTP = () => {
 const Mailgenerator = new Mailgen({
     theme: "default",
     product: {
-        name: "MovieMatic",
+        name: "SkySavvy",
         link: "https://vk-develops.vercel.app",
     },
 });

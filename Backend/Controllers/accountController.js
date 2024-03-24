@@ -50,7 +50,7 @@ const verifyAccount = asyncHandler(async (req, res) => {
                                     user.name.charAt(0).toUpperCase() +
                                     user.name.slice(1),
                                 intro: [
-                                    `Congrats ${user.name}, your account has been verified and you may start using our app for free and get dived into the world of the MovieMatic.`,
+                                    `Congrats ${user.name}, your account has been verified and you may start using our app for free and get dived into the world of exploring weather insights with SkySavvy's accuracy.`,
                                 ],
                                 outro: "Looking forward to do more business",
                             },
