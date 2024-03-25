@@ -5,6 +5,7 @@ import User from "../Models/userModel.js";
 const protect = asyncHandler(async (req, res, next) => {
     let token;
 
+    //Extracting the token from the cookie
     token = req.cookies.jwt;
 
     if (token) {
@@ -14,17 +15,16 @@ const protect = asyncHandler(async (req, res, next) => {
             req.user = await User.findById(decoded.userId).select("-password");
 
             next();
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
             return res.status(401).json({
                 success: false,
-                message: "Not authorized, token failed",
+                message: "Unauthorized access, Invalid tokens.",
             });
         }
     } else {
         return res.status(401).json({
             success: false,
-            message: "Not authorized, token failed",
+            message: "Unauthorized access, No tokens.",
         });
     }
 });
