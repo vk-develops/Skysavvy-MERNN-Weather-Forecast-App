@@ -124,54 +124,50 @@ const loginUser = asyncHandler(async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        //Check for All fields
+        //Check for all fields
         if (!email || !password) {
-            return res.status(400).json({
-                success: false,
-                message: "Missing fields, enter all fields.",
-            });
+            return res
+                .status(400)
+                .json({ success: false, message: "All fields are necessary" });
         }
 
-        //Check for a user
+        //Check for user
         const user = await User.findOne({ email });
-
-        //Functions if a user
         if (user) {
-            //Comparing passswords
-            const isPasswordMatch = await bcrypt.compare(
-                password,
-                user.password
-            );
-            if (isPasswordMatch) {
-                //Generating a user token
-                generateToken(res, user._id);
+            if (user.isVerified) {
+                //Check for password match
+                const isPasswordMatch = await bcrypt.compare(
+                    password,
+                    user.password
+                );
+                if (!isPasswordMatch) {
+                    return res.status(400).json({
+                        success: false,
+                        message: "Passwords does not match",
+                    });
+                } else {
+                    //Generating a token after logining in
+                    generateToken(res, user._id);
 
-                //Destructuring the user info
-                const { _id, name, email } = user;
+                    //Destructuring the user details
+                    const { password, ...resetofUserDetails } = user._doc;
 
-                //Destructuring the user details
-                const { password, ...restOfUserDetails } = user._doc;
-
-                res.status(200).json({
-                    success: true,
-                    message: "Account login success.",
-                    data: restOfUserDetails,
-                    userInfo: {
-                        _id,
-                        name,
-                        email,
-                    },
-                });
+                    //Sending Resopnse
+                    res.status(200).json({
+                        success: true,
+                        message: "User Login sucesss",
+                        data: resetofUserDetails,
+                    });
+                }
             } else {
-                return res.status(401).json({
-                    success: false,
-                    message: "Passwords does not match.",
-                });
+                return res
+                    .status(400)
+                    .json({ success: false, message: "User is not verified" });
             }
         } else {
             return res
                 .status(400)
-                .json({ success: false, message: "User does not exists." });
+                .json({ success: false, message: "User does not exists" });
         }
     } catch (err) {
         console.log(err.message);
