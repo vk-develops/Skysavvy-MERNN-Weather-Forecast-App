@@ -1,12 +1,7 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import OnboardingStack from "./src/Pages/Onboarding/OnboardingStack";
 import { NavigationContainer } from "@react-navigation/native";
-import TabNavigator from "./src/Navigation/TabNavigator";
-import HomeStack from "./src/Pages/Home/HomeStack";
-import HomeScreen from "./src/Pages/Home/HomeScreen";
-import ProfileStack from "./src/Pages/Profile/ProfileStack";
 import DrawerNavigator from "./src/Navigation/DrawerNavigator";
 
 export default function App() {
