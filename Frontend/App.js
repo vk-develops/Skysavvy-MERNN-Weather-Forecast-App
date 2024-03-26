@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import { Provider } from "redux";
+import { Provider } from "react-redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerNavigator from "./src/Navigation/DrawerNavigator";
