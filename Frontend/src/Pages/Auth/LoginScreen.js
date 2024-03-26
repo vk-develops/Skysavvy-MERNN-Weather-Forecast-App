@@ -6,11 +6,14 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
 
 const RegisterScreen = ({ navigation }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <ScrollView>
             <LinearGradient
@@ -57,6 +60,11 @@ const RegisterScreen = ({ navigation }) => {
                                         placeholder="Enter your email"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={email}
+                                        onChangeText={(text) => setEmail(text)}
+                                        autoCapitalize="none"
+                                        autoCorrect={false}
+                                        keyboardType="email-address"
                                     />
                                 </View>
                                 <View className="mt-6">
@@ -71,6 +79,13 @@ const RegisterScreen = ({ navigation }) => {
                                         placeholder="Enter your password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={password}
+                                        onChangeText={(text) =>
+                                            setPassword(text)
+                                        }
+                                        autoCapitalize="none"
+                                        autoCorrect={false}
+                                        secureTextEntry={true}
                                     />
                                 </View>
                             </View>
