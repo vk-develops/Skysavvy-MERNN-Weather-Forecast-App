@@ -7,6 +7,7 @@ import TabNavigator from "./src/Navigation/TabNavigator";
 import HomeStack from "./src/Pages/Home/HomeStack";
 import HomeScreen from "./src/Pages/Home/HomeScreen";
 import ProfileStack from "./src/Pages/Profile/ProfileStack";
+import DrawerNavigator from "./src/Navigation/DrawerNavigator";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -27,11 +28,7 @@ export default function App() {
                 style="light"
             />
             <NavigationContainer>
-                {/* <OnboardingStack /> */}
-                {/* <TabNavigator /> */}
-                {/* <HomeStack /> */}
-                {/* <HomeStack /> */}
-                <TabNavigator />
+                <DrawerNavigator />
             </NavigationContainer>
         </SafeAreaView>
     );
