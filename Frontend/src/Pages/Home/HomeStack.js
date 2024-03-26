@@ -3,6 +3,7 @@ import {
     createStackNavigator,
     CardStyleInterpolators,
 } from "@react-navigation/stack";
+import HomeScreen from "./HomeScreen";
 
 const Stack = createStackNavigator();
 
@@ -17,7 +18,7 @@ const HomeStack = () => {
         >
             <Stack.Screen
                 name="HomeScreen"
-                component={HomeStack}
+                component={HomeScreen}
             />
         </Stack.Navigator>
     );

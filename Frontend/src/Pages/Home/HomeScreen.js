@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -12,7 +12,11 @@ const HomeScreen = () => {
                 }}
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
-            ></LinearGradient>
+            >
+                <View>
+                    <Text>Hello home page</Text>
+                </View>
+            </LinearGradient>
         </ScrollView>
     );
 };

@@ -3,6 +3,10 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import OnboardingStack from "./src/Pages/Onboarding/OnboardingStack";
 import { NavigationContainer } from "@react-navigation/native";
+import TabNavigator from "./src/Navigation/TabNavigator";
+import HomeStack from "./src/Pages/Home/HomeStack";
+import HomeScreen from "./src/Pages/Home/HomeScreen";
+import ProfileStack from "./src/Pages/Profile/ProfileStack";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -23,7 +27,11 @@ export default function App() {
                 style="light"
             />
             <NavigationContainer>
-                <OnboardingStack />
+                {/* <OnboardingStack /> */}
+                {/* <TabNavigator /> */}
+                {/* <HomeStack /> */}
+                {/* <HomeStack /> */}
+                <TabNavigator />
             </NavigationContainer>
         </SafeAreaView>
     );
