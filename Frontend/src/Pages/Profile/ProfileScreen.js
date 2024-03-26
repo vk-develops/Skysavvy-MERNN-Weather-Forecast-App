@@ -2,7 +2,7 @@ import { ScrollView } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-const HomeScreen = () => {
+const ProfileScreen = () => {
     return (
         <ScrollView className="flex-1">
             <LinearGradient
@@ -17,4 +17,4 @@ const HomeScreen = () => {
     );
 };
 
-export default HomeScreen;
+export default ProfileScreen;
