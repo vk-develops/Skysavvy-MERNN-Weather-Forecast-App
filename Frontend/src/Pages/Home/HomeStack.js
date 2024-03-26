@@ -3,32 +3,25 @@ import {
     createStackNavigator,
     CardStyleInterpolators,
 } from "@react-navigation/stack";
-import OnboardingScreen from "./OnboardingScreen";
-import AuthStack from "../Auth/AuthStack";
-import HomeScreen from "../Home/HomeScreen";
+import HomeScreen from "./HomeScreen";
 
 const Stack = createStackNavigator();
 
-const OnboardingStack = () => {
+const HomeStack = () => {
     return (
         <Stack.Navigator
             screenOptions={{
                 gestureEnabled: true,
                 gestureDirection: "horizontal",
                 cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-                headerShown: false,
             }}
         >
             <Stack.Screen
-                name="OnboardingScreen"
-                component={OnboardingScreen}
-            />
-            <Stack.Screen
-                name="AuthStack"
-                component={AuthStack}
+                name="HomeScreen"
+                component={HomeScreen}
             />
         </Stack.Navigator>
     );
 };
 
-export default OnboardingStack;
+export default HomeStack;

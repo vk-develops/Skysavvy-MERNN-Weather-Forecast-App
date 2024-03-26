@@ -1,8 +1,8 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import OnboardingStack from "./src/Pages/Onboarding/OnboardingStack";
 import { NavigationContainer } from "@react-navigation/native";
+import DrawerNavigator from "./src/Navigation/DrawerNavigator";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -23,7 +23,7 @@ export default function App() {
                 style="light"
             />
             <NavigationContainer>
-                <OnboardingStack />
+                <DrawerNavigator />
             </NavigationContainer>
         </SafeAreaView>
     );
