@@ -3,8 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
-import DrawerNavigator from "./src/Navigation/DrawerNavigator";
 import store from "./src/Redux/store";
+import MainNavigator from "./src/Navigation/MainNavigator";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -26,7 +26,7 @@ export default function App() {
                     style="light"
                 />
                 <NavigationContainer>
-                    <DrawerNavigator />
+                    <MainNavigator />
                 </NavigationContainer>
             </Provider>
         </SafeAreaView>
