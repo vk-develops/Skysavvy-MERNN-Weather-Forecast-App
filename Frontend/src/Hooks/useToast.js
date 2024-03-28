@@ -9,7 +9,7 @@ const useSuccessToast = ({ msg }) => {
 
 const useErrorToast = ({ msg }) => {
     Toast.show({
-        type: "success",
+        type: "error",
         text1: msg,
     });
 };
