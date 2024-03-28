@@ -9,10 +9,37 @@ import {
 import React, { useState } from "react";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
+import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
+import { useDispatch } from "react-redux";
+import { AUTH_URL, BASE_URL } from "../../Redux/constants";
 
 const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const dispatch = useDispatch();
+
+    const [login, { isLoading, isError }] = useLoginMutation();
+
+    const submitHandler = async () => {
+        console.log(email, password);
+
+        console.log(`${BASE_URL}${AUTH_URL}/login`);
+
+        try {
+            const response = await login({ email, password }).unwrap();
+            console.log(response);
+            console.log(response.message);
+        } catch (err) {
+            console.log("Error:", err);
+            console.log("Error type:", typeof err);
+            console.log("Error message:", err.message);
+        }
+    };
+
+    if (isError) {
+        console.log(isError);
+    }
 
     return (
         <ScrollView>
@@ -56,7 +83,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Email:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your email"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -75,7 +102,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Password:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -91,6 +118,7 @@ const RegisterScreen = ({ navigation }) => {
                             </View>
                             <View className="mt-12">
                                 <TouchableOpacity
+                                    onPress={submitHandler}
                                     activeOpacity={0.7}
                                     className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                                 >

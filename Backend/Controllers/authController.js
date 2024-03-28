@@ -124,6 +124,9 @@ const loginUser = asyncHandler(async (req, res) => {
     try {
         const { email, password } = req.body;
 
+        console.log(email, password);
+        console.log(req.body);
+
         //Check for all fields
         if (!email || !password) {
             return res

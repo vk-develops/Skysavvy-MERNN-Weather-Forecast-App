@@ -5,7 +5,7 @@ export const usersAuthApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         register: builder.mutation({
             query: (data) => ({
-                url: `${AUTH_URL}register`,
+                url: `${AUTH_URL}/register`,
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -17,7 +17,7 @@ export const usersAuthApiSlice = apiSlice.injectEndpoints({
 
         login: builder.mutation({
             query: (data) => ({
-                url: `${AUTH_URL}login`,
+                url: `${AUTH_URL}/login`,
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -29,7 +29,7 @@ export const usersAuthApiSlice = apiSlice.injectEndpoints({
 
         logout: builder.mutation({
             query: () => ({
-                url: `${AUTH_URL}logout`,
+                url: `${AUTH_URL}/logout`,
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -38,7 +38,7 @@ export const usersAuthApiSlice = apiSlice.injectEndpoints({
             }),
         }),
     }),
+    overrideExisting: true,
 });
 
-export const { useRegisterMutation, useLoginMutation, useLogoutMutation } =
-    usersAuthApiSlice;
+export const { useRegisterMutation, useLoginMutation } = usersAuthApiSlice;
