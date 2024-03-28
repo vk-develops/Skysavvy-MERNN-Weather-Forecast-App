@@ -6,11 +6,32 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
+import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../Redux/Features/usersAuthSlice";
 
 const RegisterScreen = ({ navigation }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const dispatch = useDispatch();
+
+    const [login, { isLoading }] = useLoginMutation();
+
+    const submitHandler = async () => {
+        try {
+            const response = await login({ email, password }).unwrap();
+            console.log(response);
+            const userInfo = response.userInfo;
+            dispatch(setCredentials(userInfo));
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
     return (
         <ScrollView>
             <LinearGradient
@@ -53,10 +74,15 @@ const RegisterScreen = ({ navigation }) => {
                                         Email:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your email"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={email}
+                                        onChangeText={(text) => setEmail(text)}
+                                        autoCapitalize="none"
+                                        autoCorrect={false}
+                                        keyboardType="email-address"
                                     />
                                 </View>
                                 <View className="mt-6">
@@ -67,15 +93,23 @@ const RegisterScreen = ({ navigation }) => {
                                         Password:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={password}
+                                        onChangeText={(text) =>
+                                            setPassword(text)
+                                        }
+                                        autoCapitalize="none"
+                                        autoCorrect={false}
+                                        secureTextEntry={true}
                                     />
                                 </View>
                             </View>
                             <View className="mt-12">
                                 <TouchableOpacity
+                                    onPress={submitHandler}
                                     activeOpacity={0.7}
                                     className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                                 >
