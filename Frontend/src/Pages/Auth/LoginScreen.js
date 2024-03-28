@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch } from "react-redux";
 import { AUTH_URL, BASE_URL } from "../../Redux/constants";
+import { setCredentials } from "../../Redux/Features/usersAuthSlice";
 
 const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const RegisterScreen = ({ navigation }) => {
 
     const dispatch = useDispatch();
 
-    const [login, { isLoading, isError }] = useLoginMutation();
+    const [login, { isLoading }] = useLoginMutation();
 
     const submitHandler = async () => {
         console.log(email, password);
@@ -29,17 +30,12 @@ const RegisterScreen = ({ navigation }) => {
         try {
             const response = await login({ email, password }).unwrap();
             console.log(response);
-            console.log(response.message);
+            const userInfo = response.userInfo;
+            dispatch(setCredentials(userInfo));
         } catch (err) {
-            console.log("Error:", err);
-            console.log("Error type:", typeof err);
-            console.log("Error message:", err.message);
+            console.log(err.message);
         }
     };
-
-    if (isError) {
-        console.log(isError);
-    }
 
     return (
         <ScrollView>
