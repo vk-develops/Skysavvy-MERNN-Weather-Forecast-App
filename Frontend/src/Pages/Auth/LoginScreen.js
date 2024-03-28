@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../../Redux/Features/usersAuthSlice";
+import { useSuccessToast } from "../../Hooks/useToast";
 
 const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -25,8 +26,12 @@ const RegisterScreen = ({ navigation }) => {
         try {
             const response = await login({ email, password }).unwrap();
             console.log(response);
-            const userInfo = response.userInfo;
-            dispatch(setCredentials(userInfo));
+            if (response.success) {
+                const userInfo = response.userInfo;
+                dispatch(setCredentials(userInfo));
+                console.log("Topasted");
+                useSuccessToast({ msg: response.message });
+            }
         } catch (err) {
             console.log(err.message);
         }

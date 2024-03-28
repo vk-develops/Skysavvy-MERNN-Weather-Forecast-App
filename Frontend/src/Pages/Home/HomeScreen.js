@@ -1,4 +1,5 @@
 import { Button, ScrollView, View } from "react-native";
+import Toaster from "react-native-toast-message";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLogoutMutation } from "../../Redux/Services/usersAuthApiSlice";

@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import store from "./src/Redux/store";
 import MainNavigator from "./src/Navigation/MainNavigator";
+import Toast from "react-native-toast-message";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -27,6 +28,7 @@ export default function App() {
                 />
                 <NavigationContainer>
                     <MainNavigator />
+                    <Toast />
                 </NavigationContainer>
             </Provider>
         </SafeAreaView>
