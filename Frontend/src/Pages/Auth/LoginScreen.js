@@ -11,7 +11,6 @@ import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch } from "react-redux";
-import { AUTH_URL, BASE_URL } from "../../Redux/constants";
 import { setCredentials } from "../../Redux/Features/usersAuthSlice";
 
 const RegisterScreen = ({ navigation }) => {
@@ -23,10 +22,6 @@ const RegisterScreen = ({ navigation }) => {
     const [login, { isLoading }] = useLoginMutation();
 
     const submitHandler = async () => {
-        console.log(email, password);
-
-        console.log(`${BASE_URL}${AUTH_URL}/login`);
-
         try {
             const response = await login({ email, password }).unwrap();
             console.log(response);
