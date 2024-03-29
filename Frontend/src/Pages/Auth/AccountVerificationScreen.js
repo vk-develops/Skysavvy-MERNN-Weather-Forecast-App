@@ -1,6 +1,7 @@
 import { View, Text, ScrollView, ImageBackground } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import { OtpInput } from "react-native-otp-entry";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 
 const AccountVerificationScreen = () => {
@@ -19,7 +20,12 @@ const AccountVerificationScreen = () => {
                     source={LoginBg}
                     resizeMode="cover"
                     className="flex-1 -m-12 justify-center"
-                ></ImageBackground>
+                >
+                    <OtpInput
+                        numberOfDigits={6}
+                        onTextChange={(text) => console.log(text)}
+                    />
+                </ImageBackground>
             </LinearGradient>
         </ScrollView>
     );
