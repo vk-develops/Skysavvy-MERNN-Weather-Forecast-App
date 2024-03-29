@@ -59,7 +59,7 @@ const AccountVerificationScreen = () => {
                                     }
                                 />
                             </View>
-                            <View className="flex items-center justify-end gap-[1px] flex-row mt-8">
+                            <View className="flex items-center justify-end gap-[1px] flex-row mt-5">
                                 <Text
                                     className="text-slate-300 text-base"
                                     style={{ fontFamily: "plexRegular" }}
@@ -80,6 +80,20 @@ const AccountVerificationScreen = () => {
                                         }}
                                     >
                                         Resend OTP
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View className="mt-16">
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
+                                >
+                                    <Text
+                                        className="text-[20px] text-black text-center py-3"
+                                        style={{ fontFamily: "plexMedium" }}
+                                    >
+                                        Verify OTP
                                     </Text>
                                 </TouchableOpacity>
                             </View>
