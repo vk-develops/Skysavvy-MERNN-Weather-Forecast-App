@@ -31,7 +31,6 @@ const RegisterScreen = ({ navigation }) => {
                 const userInfo = response.userInfo;
                 dispatch(setCredentials(userInfo));
                 useSuccessToast({ msg: response.message });
-            } else {
             }
         } catch (err) {
             console.log(err.data.message);

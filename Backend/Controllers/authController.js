@@ -109,6 +109,11 @@ const registerUser = asyncHandler(async (req, res) => {
                 success: true,
                 message: "User registration sucesss",
                 data: resetofUserDetails,
+                userInfo: {
+                    _id: user._id,
+                    name: user.name,
+                    email: user.email,
+                },
             });
         }
     } catch (err) {
@@ -160,6 +165,11 @@ const loginUser = asyncHandler(async (req, res) => {
                         success: true,
                         message: "User Login sucesss",
                         data: resetofUserDetails,
+                        userInfo: {
+                            _id: user._id,
+                            name: user.name,
+                            email: user.email,
+                        },
                     });
                 }
             } else {

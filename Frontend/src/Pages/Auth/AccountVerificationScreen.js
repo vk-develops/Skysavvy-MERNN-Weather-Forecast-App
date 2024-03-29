@@ -5,13 +5,32 @@ import {
     ImageBackground,
     TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { OtpInput } from "react-native-otp-entry";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { styles } from "../../Styles/style";
+import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
+import { useVerifyAccountMutation } from "../../Redux/Services/userAccountApiSlice";
 
 const AccountVerificationScreen = () => {
+    const [otp, setOtp] = useState("");
+
+    const [verifyAccount, { isLoading }] = useVerifyAccountMutation();
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await verifyAccount({ otp }).unwrap();
+            if (response.success) {
+                useSuccessToast({ msg: response.message });
+            }
+        } catch (err) {
+            useErrorToast(err.data.message);
+        }
+    };
+
     return (
         <ScrollView className="flex-1">
             <LinearGradient
