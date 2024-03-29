@@ -13,6 +13,7 @@ import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../../Redux/Features/usersAuthSlice";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
+import { styles } from "../../Styles/style";
 
 const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -57,13 +58,13 @@ const RegisterScreen = ({ navigation }) => {
                     <View className="m-12 px-4">
                         <View>
                             <Text
-                                className="text-[30px] text-white text-center"
+                                className="text-[30px] text-white text-center pt-6"
                                 style={{ fontFamily: "plexSemiBold" }}
                             >
                                 Login
                             </Text>
                             <Text
-                                className="text-base text-[#aaa] text-center pt-[22px]"
+                                className={`${styles.paraText} pt-[22px]`}
                                 style={{ fontFamily: "plexRegular" }}
                             >
                                 Install Bootstrap’s source Sass and JavaScript
@@ -71,7 +72,7 @@ const RegisterScreen = ({ navigation }) => {
                                 installs don’t full build scripts.
                             </Text>
 
-                            <View className="mt-10">
+                            <View className="mt-8">
                                 <View className="mt-6">
                                     <Text
                                         className="text-[17px] text-white"
