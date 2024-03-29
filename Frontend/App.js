@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import store from "./src/Redux/store";
 import MainNavigator from "./src/Navigation/MainNavigator";
 import Toast from "react-native-toast-message";
+import AccountVerificationScreen from "./src/Pages/Auth/AccountVerificationScreen";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -27,7 +28,8 @@ export default function App() {
                     style="light"
                 />
                 <NavigationContainer>
-                    <MainNavigator />
+                    {/* <MainNavigator /> */}
+                    <AccountVerificationScreen />
                     <Toast />
                 </NavigationContainer>
             </Provider>

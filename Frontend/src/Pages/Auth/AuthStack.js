@@ -5,6 +5,7 @@ import {
 } from "@react-navigation/stack";
 import RegisterScreen from "./RegisterScreen";
 import LoginScreen from "./LoginScreen";
+import AccountVerificationScreen from "./AccountVerificationScreen";
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,10 @@ const AuthStack = () => {
             <Stack.Screen
                 name="LoginScreen"
                 component={LoginScreen}
+            />
+            <Stack.Screen
+                name="AccountVerificationScreen"
+                component={AccountVerificationScreen}
             />
         </Stack.Navigator>
     );
