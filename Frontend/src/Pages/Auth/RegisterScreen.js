@@ -11,6 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { useRegisterMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
+import { styles } from "../../Styles/style";
 
 const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState("");
@@ -60,7 +61,7 @@ const RegisterScreen = ({ navigation }) => {
                                 Register
                             </Text>
                             <Text
-                                className="text-base text-[#aaa] text-center pt-[22px]"
+                                className={`${styles.paraText} pt-[22px]`}
                                 style={{ fontFamily: "plexRegular" }}
                             >
                                 Install Bootstrap’s source Sass and JavaScript
