@@ -75,6 +75,8 @@ const RegisterScreen = ({ navigation }) => {
                                         placeholder="Enter your name"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={name}
+                                        onChangeText={(text) => setName(text)}
                                     />
                                 </View>
                                 <View className="mt-6">
@@ -89,6 +91,11 @@ const RegisterScreen = ({ navigation }) => {
                                         placeholder="Enter your email"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={email}
+                                        onChangeText={(text) => setEmail(text)}
+                                        autoCapitalize="none"
+                                        autoCorrect={false}
+                                        keyboardType="email-address"
                                     />
                                 </View>
                                 <View className="mt-6">
@@ -103,6 +110,13 @@ const RegisterScreen = ({ navigation }) => {
                                         placeholder="Enter a password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
+                                        value={password}
+                                        onChangeText={(text) =>
+                                            setPassword(text)
+                                        }
+                                        autoCapitalize="none"
+                                        autoCorrect={false}
+                                        secureTextEntry={true}
                                     />
                                 </View>
                             </View>
