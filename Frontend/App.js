@@ -1,12 +1,11 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
+import Toast from "react-native-toast-message";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import store from "./src/Redux/store";
 import MainNavigator from "./src/Navigation/MainNavigator";
-import Toast from "react-native-toast-message";
-import AccountVerificationScreen from "./src/Pages/Auth/AccountVerificationScreen";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -28,8 +27,7 @@ export default function App() {
                     style="light"
                 />
                 <NavigationContainer>
-                    {/* <MainNavigator /> */}
-                    <AccountVerificationScreen />
+                    <MainNavigator />
                     <Toast />
                 </NavigationContainer>
             </Provider>
