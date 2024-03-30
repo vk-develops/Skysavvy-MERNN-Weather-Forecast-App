@@ -32,6 +32,15 @@ const registerUser = asyncHandler(async (req, res) => {
             });
         }
 
+        if (password.length < 8) {
+            return res
+                .status(400)
+                .json({
+                    success: false,
+                    message: "Password length must be greater than 8",
+                });
+        }
+
         //Check for existing user
         const existingUser = await User.findOne({ email });
         if (existingUser) {
