@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeCredentials } from "../../Redux/Features/usersAuthSlice";
 import WeatherCard from "../../Components/WeatherCard";
 import Header from "../../Components/Header";
+import MiniWeatherCard from "../../Components/MiniWeatherCard";
 
 const HomeScreen = ({ navigation }) => {
     const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -42,8 +43,11 @@ const HomeScreen = ({ navigation }) => {
                         navigation.toggleDrawer();
                     }}
                 />
-                <View className="px-5 ">
+                <View className="px-5 mt-8">
                     <WeatherCard />
+                    <View className="mt-5">
+                        <MiniWeatherCard />
+                    </View>
                 </View>
             </LinearGradient>
         </ScrollView>
