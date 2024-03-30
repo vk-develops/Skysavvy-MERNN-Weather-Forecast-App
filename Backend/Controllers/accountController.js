@@ -87,7 +87,8 @@ const verifyAccount = asyncHandler(async (req, res) => {
                         //Sending the response after all executions
                         res.status(200).json({
                             success: true,
-                            message: "OTP verified!",
+                            message:
+                                "OTP verified!, Account verification success",
                             userInfo: {
                                 _id: user._id,
                                 name: user.name,

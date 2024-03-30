@@ -12,18 +12,25 @@ import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { styles } from "../../Styles/style";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 import { useVerifyAccountMutation } from "../../Redux/Services/userAccountApiSlice";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../Redux/Features/usersAuthSlice";
 
 const AccountVerificationScreen = () => {
     const [otp, setOtp] = useState("");
 
     const [verifyAccount, { isLoading }] = useVerifyAccountMutation();
 
+    const dispatch = useDispatch();
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
         try {
             const response = await verifyAccount({ otp }).unwrap();
+            console.log(response);
             if (response.success) {
+                const userInfo = response.userInfo;
+                dispatch(setCredentials(userInfo));
                 useSuccessToast({ msg: response.message });
             }
         } catch (err) {
@@ -73,9 +80,7 @@ const AccountVerificationScreen = () => {
                                         pinCodeTextStyle: { color: "white" },
                                     }}
                                     onTextChange={(text) => console.log(text)}
-                                    onFilled={(text) =>
-                                        console.log(`OTP is ${text}`)
-                                    }
+                                    onFilled={(text) => setOtp(text)}
                                 />
                             </View>
                             <View className="flex items-center justify-end gap-[1px] flex-row mt-5">
@@ -105,6 +110,7 @@ const AccountVerificationScreen = () => {
 
                             <View className="mt-16">
                                 <TouchableOpacity
+                                    onPress={submitHandler}
                                     activeOpacity={0.7}
                                     className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                                 >

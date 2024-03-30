@@ -8,6 +8,4 @@ const styles = {
     } text-[#aaa] text-center`,
 };
 
-console.log(width);
-
 export { styles };

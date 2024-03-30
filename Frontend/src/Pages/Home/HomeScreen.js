@@ -1,12 +1,16 @@
 import { Button, ScrollView, View } from "react-native";
-import Toaster from "react-native-toast-message";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLogoutMutation } from "../../Redux/Services/usersAuthApiSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeCredentials } from "../../Redux/Features/usersAuthSlice";
 
 const HomeScreen = () => {
+    const { user, isAuthenticated } = useSelector((state) => state.auth);
+
+    console.log(user);
+    console.log(isAuthenticated);
+
     const dispatch = useDispatch();
 
     const [logout] = useLogoutMutation();
