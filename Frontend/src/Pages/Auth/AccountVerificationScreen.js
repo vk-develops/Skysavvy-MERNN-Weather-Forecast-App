@@ -34,7 +34,7 @@ const AccountVerificationScreen = () => {
                 useSuccessToast({ msg: response.message });
             }
         } catch (err) {
-            useErrorToast(err.data.message);
+            useErrorToast({ msg: err.data.message });
         }
     };
 
@@ -118,7 +118,9 @@ const AccountVerificationScreen = () => {
                                         className="text-[20px] text-black text-center py-3"
                                         style={{ fontFamily: "plexMedium" }}
                                     >
-                                        Verify OTP
+                                        {isLoading
+                                            ? `Verifying OTP...`
+                                            : `Verify OTP`}
                                     </Text>
                                 </TouchableOpacity>
                             </View>

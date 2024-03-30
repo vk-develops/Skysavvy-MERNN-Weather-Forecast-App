@@ -136,7 +136,9 @@ const RegisterScreen = ({ navigation }) => {
                                         className="text-[20px] text-black text-center py-3"
                                         style={{ fontFamily: "plexMedium" }}
                                     >
-                                        Sign Up
+                                        {isLoading
+                                            ? `Signing Up...`
+                                            : `Sign Up`}
                                     </Text>
                                 </TouchableOpacity>
                             </View>
