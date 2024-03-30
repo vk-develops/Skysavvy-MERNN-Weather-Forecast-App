@@ -49,5 +49,9 @@ export const usersAuthApiSlice = apiSlice.injectEndpoints({
     overrideExisting: true,
 });
 
-export const { useRegisterMutation, useLoginMutation, useIsLoggedInQuery } =
-    usersAuthApiSlice;
+export const {
+    useRegisterMutation,
+    useLoginMutation,
+    useLogoutMutation,
+    useIsLoggedInQuery,
+} = usersAuthApiSlice;

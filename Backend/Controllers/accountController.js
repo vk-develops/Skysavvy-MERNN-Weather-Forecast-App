@@ -88,6 +88,11 @@ const verifyAccount = asyncHandler(async (req, res) => {
                         res.status(200).json({
                             success: true,
                             message: "OTP verified!",
+                            userInfo: {
+                                _id: user._id,
+                                name: user.name,
+                                email: user.email,
+                            },
                         });
                     } else {
                         return res.status(409).json({

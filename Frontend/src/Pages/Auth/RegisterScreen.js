@@ -7,8 +7,8 @@ import {
     TouchableOpacity,
 } from "react-native";
 import React from "react";
-import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
+import LoginBg from "../../../assets/Images/Login-Bg.png";
 
 const RegisterScreen = ({ navigation }) => {
     return (
