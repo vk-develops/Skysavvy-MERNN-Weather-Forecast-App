@@ -77,7 +77,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Name:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your name"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -93,7 +93,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Email:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your email"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -112,7 +112,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Password:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter a password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
