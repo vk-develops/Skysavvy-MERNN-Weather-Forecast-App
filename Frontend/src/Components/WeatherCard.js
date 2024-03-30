@@ -10,17 +10,17 @@ const WeatherCard = () => {
         >
             <Text
                 style={{ fontFamily: "plexBold" }}
-                className="text-[75px] text-white"
+                className="text-[75px] text-white mt-2"
             >
                 19&deg;
             </Text>
-            <View className="absolute top-5 right-0 rotate-[6deg]">
+            <View className="absolute top-5 right-0">
                 <Image
                     source={Img}
                     className="h-[135px] w-[180px]"
                 />
             </View>
-            <View className="mt-4">
+            <View className="mt-5">
                 <View className="flex items-center justify-start flex-row gap-2">
                     <Text
                         style={{ fontFamily: "plexRegular" }}
@@ -35,12 +35,20 @@ const WeatherCard = () => {
                         H:14
                     </Text>
                 </View>
-                <Text
-                    style={{ fontFamily: "plexMedium" }}
-                    className="text-lg text-white"
-                >
-                    Montreal, Canada
-                </Text>
+                <View className="flex items-center justify-between flex-row">
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-lg text-white"
+                    >
+                        Montreal, Canada
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-lg text-white"
+                    >
+                        Morning Mist
+                    </Text>
+                </View>
             </View>
         </View>
     );
