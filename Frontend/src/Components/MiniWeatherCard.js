@@ -1,10 +1,11 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
 
 const MiniWeatherCard = () => {
     return (
-        <View
+        <TouchableOpacity
+            activeOpacity={0.6}
             style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
             className="px-5 pb-5 rounded-lg relative"
         >
@@ -44,7 +45,7 @@ const MiniWeatherCard = () => {
                     19&deg;
                 </Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
