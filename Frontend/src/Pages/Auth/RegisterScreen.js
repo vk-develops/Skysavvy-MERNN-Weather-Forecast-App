@@ -128,6 +128,7 @@ const RegisterScreen = ({ navigation }) => {
                             </View>
                             <View className="mt-12">
                                 <TouchableOpacity
+                                    onPress={submitHandler}
                                     activeOpacity={0.7}
                                     className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                                 >
