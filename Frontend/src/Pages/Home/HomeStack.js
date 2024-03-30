@@ -14,6 +14,7 @@ const HomeStack = () => {
                 gestureEnabled: true,
                 gestureDirection: "horizontal",
                 cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+                headerShown: false,
             }}
         >
             <Stack.Screen
