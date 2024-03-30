@@ -41,7 +41,8 @@ const WeatherCard = ({ weatherData }) => {
                         style={{ fontFamily: "plexMedium" }}
                         className="text-lg text-white"
                     >
-                        Montreal, Canada
+                        {weatherData.location.name},{" "}
+                        {weatherData.location.region}
                     </Text>
                     <Text
                         style={{ fontFamily: "plexMedium" }}
