@@ -67,8 +67,6 @@ const HomeScreen = ({ navigation }) => {
         getWeatherData();
     }, [city]);
 
-    console.log(weatherData);
-
     return (
         <ScrollView className="flex-1">
             <LinearGradient
@@ -85,10 +83,14 @@ const HomeScreen = ({ navigation }) => {
                     }}
                 />
                 <View className="px-5 mt-8">
-                    <WeatherCard weatherData={weatherData} />
-                    <View className="mt-5">
-                        <MiniWeatherCard />
-                    </View>
+                    {weatherData && (
+                        <View>
+                            <WeatherCard weatherData={weatherData} />
+                            <View className="mt-5">
+                                <MiniWeatherCard />
+                            </View>
+                        </View>
+                    )}
                 </View>
             </LinearGradient>
         </ScrollView>
