@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { LinearGradient } from "expo-linear-gradient";
@@ -9,56 +9,49 @@ import MiniWeatherCard from "../../Components/MiniWeatherCard";
 const HomeScreen = ({ navigation }) => {
     const [location, setLocation] = useState(null);
     const [address, setAddress] = useState(null);
-    const [city, setCity] = useState("Mumbai");
+    const [city, setCity] = useState("");
     const [weatherData, setWeatherData] = useState([]);
 
     const getLocationPermission = async () => {
         let { status } = await Location.requestForegroundPermissionsAsync();
 
         if (status !== "granted") {
-            console.log("Location permission not granted");
+            console.log("Location not granted");
+            setCity("Mumbai");
         } else {
-            try {
-                const currentLocation = await Location.getCurrentPositionAsync(
-                    {}
-                );
-                setLocation(currentLocation);
-            } catch (error) {
-                console.error("Error fetching location:", error);
-            }
+            let location = await Location.getCurrentPositionAsync({});
+            setLocation(location);
         }
     };
 
     const reverseGeo = async () => {
         if (location) {
-            try {
-                const { coords } = location;
-                const reverseGeoCodeAddress =
-                    await Location.reverseGeocodeAsync({
-                        latitude: coords.latitude,
-                        longitude: coords.longitude,
-                    });
-                if (reverseGeoCodeAddress && reverseGeoCodeAddress.length > 0) {
-                    setAddress(reverseGeoCodeAddress);
-                    setCity(reverseGeoCodeAddress[0].city);
-                } else {
-                    console.error("Reverse geocode response is null or empty");
-                }
-            } catch (error) {
-                console.error("Error reverse geocoding:", error);
+            const { coords } = location;
+            const reverseGeoCodeAddress = await Location.reverseGeocodeAsync({
+                latitude: coords.latitude,
+                longitude: coords.longitude,
+            });
+            setAddress(reverseGeoCodeAddress);
+
+            if (reverseGeoCodeAddress && reverseGeoCodeAddress.length > 0) {
+                setCity(reverseGeoCodeAddress[0].city);
             }
+        } else {
+            console.log("Location is null or undefined");
         }
     };
 
     const getWeatherData = async () => {
+        const getCity = city ? city : "Mumbai";
+
         try {
             const response = await fetch(
-                `${process.env.EXPO_PUBLIC_WEATHER_API_CURRENT}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${city}`
+                `${process.env.EXPO_PUBLIC_WEATHER_API_CURRENT}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${getCity}&aqi=true`
             );
             const data = response.json();
             setWeatherData(data);
         } catch (error) {
-            console.log(error.message);
+            console.error("Error fetching weather data:", error);
         }
     };
 
@@ -70,6 +63,13 @@ const HomeScreen = ({ navigation }) => {
         reverseGeo();
     }, [location]);
 
+    useEffect(() => {
+        getWeatherData();
+    }, [city]);
+
+    // Remove console.log statements from production code
+    console.log(weatherData);
+
     return (
         <ScrollView className="flex-1">
             <LinearGradient
@@ -80,8 +80,6 @@ const HomeScreen = ({ navigation }) => {
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
-                {console.log("DAta")}
-                {console.log(weatherData)}
                 <Header
                     onPress={() => {
                         navigation.toggleDrawer();
@@ -92,6 +90,7 @@ const HomeScreen = ({ navigation }) => {
                     <View className="mt-5">
                         <MiniWeatherCard />
                     </View>
+                    {weatherData && <Text>{weatherData.current}</Text>}
                 </View>
             </LinearGradient>
         </ScrollView>
