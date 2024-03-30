@@ -5,8 +5,9 @@ import { useLogoutMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCredentials } from "../../Redux/Features/usersAuthSlice";
 import WeatherCard from "../../Components/WeatherCard";
+import Header from "../../Components/Header";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     const { user, isAuthenticated } = useSelector((state) => state.auth);
 
     console.log(user);
@@ -36,7 +37,12 @@ const HomeScreen = () => {
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
-                <View className="px-5 mt-12">
+                <Header
+                    onPress={() => {
+                        navigation.toggleDrawer();
+                    }}
+                />
+                <View className="px-5 ">
                     <WeatherCard />
                 </View>
             </LinearGradient>
