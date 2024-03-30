@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { useRegisterMutation } from "../../Redux/Services/usersAuthApiSlice";
+import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 
 const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState("");
@@ -24,8 +25,13 @@ const RegisterScreen = ({ navigation }) => {
         try {
             const response = await register({ name, email, password }).unwrap();
             console.log(response);
+            if (response.success) {
+                useSuccessToast(response.message);
+                navigation.navigate("AccountVerificationScreen");
+            }
         } catch (err) {
             console.log(err.data.message);
+            useErrorToast(err.data.message);
         }
     };
 
