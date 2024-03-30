@@ -6,11 +6,29 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
+import { useRegisterMutation } from "../../Redux/Services/usersAuthApiSlice";
 
 const RegisterScreen = ({ navigation }) => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [register, { isLoading }] = useRegisterMutation();
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await register({ name, email, password }).unwrap();
+            console.log(response);
+        } catch (err) {
+            console.log(err.data.message);
+        }
+    };
+
     return (
         <ScrollView className="flex-1">
             <LinearGradient
