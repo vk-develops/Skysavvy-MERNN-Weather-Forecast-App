@@ -26,12 +26,12 @@ const RegisterScreen = ({ navigation }) => {
             const response = await register({ name, email, password }).unwrap();
             console.log(response);
             if (response.success) {
-                useSuccessToast(response.message);
+                useSuccessToast({ msg: response.message });
                 navigation.navigate("AccountVerificationScreen");
             }
         } catch (err) {
             console.log(err.data.message);
-            useErrorToast(err.data.message);
+            useErrorToast({ msg: err.data.message });
         }
     };
 
