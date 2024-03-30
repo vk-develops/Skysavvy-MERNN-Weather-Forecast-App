@@ -11,6 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { useRegisterMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
+import { styles } from "../../Styles/style";
 
 const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState("");
@@ -60,7 +61,7 @@ const RegisterScreen = ({ navigation }) => {
                                 Register
                             </Text>
                             <Text
-                                className="text-base text-[#aaa] text-center pt-[22px]"
+                                className={`${styles.paraText} pt-[22px]`}
                                 style={{ fontFamily: "plexRegular" }}
                             >
                                 Install Bootstrap’s source Sass and JavaScript
@@ -77,7 +78,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Name:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your name"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -93,7 +94,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Email:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter your email"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -112,7 +113,7 @@ const RegisterScreen = ({ navigation }) => {
                                         Password:{" "}
                                     </Text>
                                     <TextInput
-                                        className="border-[1.5px] border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
+                                        className="border-[1.5px] text-white border-slate-400 text-base rounded-lg py-2 pl-4 mt-4"
                                         placeholder="Enter a password"
                                         placeholderTextColor={"#aaa"}
                                         style={{ fontFamily: "plexRegular" }}
@@ -136,7 +137,9 @@ const RegisterScreen = ({ navigation }) => {
                                         className="text-[20px] text-black text-center py-3"
                                         style={{ fontFamily: "plexMedium" }}
                                     >
-                                        Sign Up
+                                        {isLoading
+                                            ? `Signing Up...`
+                                            : `Sign Up`}
                                     </Text>
                                 </TouchableOpacity>
                             </View>

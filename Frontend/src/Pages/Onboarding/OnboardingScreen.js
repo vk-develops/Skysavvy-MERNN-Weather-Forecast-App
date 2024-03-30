@@ -1,14 +1,8 @@
-import {
-    View,
-    Text,
-    ScrollView,
-    Image,
-    TouchableOpacity,
-    Dimensions,
-} from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import OnboardingImg from "../../../assets/Images/OnboardingImg.png";
+import { styles } from "../../Styles/style";
 
 const OnboardingScreen = ({ navigation }) => {
     return (
@@ -35,7 +29,7 @@ const OnboardingScreen = ({ navigation }) => {
                             weather insights with SkySavvy's accuracy
                         </Text>
                         <Text
-                            className="text-base text-[#aaa] text-center pt-[22px]"
+                            className={`${styles.paraText} pt-[22px]`}
                             style={{ fontFamily: "plexRegular" }}
                         >
                             Install Bootstrap’s source Sass and JavaScript files
