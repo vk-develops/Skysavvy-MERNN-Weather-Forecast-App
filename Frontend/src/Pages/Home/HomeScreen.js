@@ -4,6 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useLogoutMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCredentials } from "../../Redux/Features/usersAuthSlice";
+import WeatherCard from "../../Components/WeatherCard";
 
 const HomeScreen = () => {
     const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -35,11 +36,8 @@ const HomeScreen = () => {
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
-                <View>
-                    <Button
-                        title="Logout"
-                        onPress={logoutHandler}
-                    />
+                <View className="px-5 mt-12">
+                    <WeatherCard />
                 </View>
             </LinearGradient>
         </ScrollView>
