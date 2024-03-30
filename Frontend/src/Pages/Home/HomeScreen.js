@@ -9,6 +9,8 @@ import MiniWeatherCard from "../../Components/MiniWeatherCard";
 const HomeScreen = ({ navigation }) => {
     const [location, setLocation] = useState(null);
     const [address, setAddress] = useState(null);
+    const [city, setCity] = useState("Mumbai");
+    const [weatherData, setWeatherData] = useState([]);
 
     const getLocationPermission = async () => {
         let { status } = await Location.requestForegroundPermissionsAsync();
@@ -21,7 +23,6 @@ const HomeScreen = ({ navigation }) => {
                     {}
                 );
                 setLocation(currentLocation);
-                console.log(currentLocation);
             } catch (error) {
                 console.error("Error fetching location:", error);
             }
@@ -37,11 +38,27 @@ const HomeScreen = ({ navigation }) => {
                         latitude: coords.latitude,
                         longitude: coords.longitude,
                     });
-                setAddress(reverseGeoCodeAddress);
-                console.log(reverseGeoCodeAddress);
+                if (reverseGeoCodeAddress && reverseGeoCodeAddress.length > 0) {
+                    setAddress(reverseGeoCodeAddress);
+                    setCity(reverseGeoCodeAddress[0].city);
+                } else {
+                    console.error("Reverse geocode response is null or empty");
+                }
             } catch (error) {
                 console.error("Error reverse geocoding:", error);
             }
+        }
+    };
+
+    const getWeatherData = async () => {
+        try {
+            const response = await fetch(
+                `${process.env.EXPO_PUBLIC_WEATHER_API_CURRENT}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${city}`
+            );
+            const data = response.json();
+            setWeatherData(data);
+        } catch (error) {
+            console.log(error.message);
         }
     };
 
@@ -63,13 +80,15 @@ const HomeScreen = ({ navigation }) => {
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
+                {console.log("DAta")}
+                {console.log(weatherData)}
                 <Header
                     onPress={() => {
                         navigation.toggleDrawer();
                     }}
                 />
                 <View className="px-5 mt-8">
-                    <WeatherCard />
+                    <WeatherCard weatherData={weatherData} />
                     <View className="mt-5">
                         <MiniWeatherCard />
                     </View>

@@ -2,7 +2,9 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
 
-const WeatherCard = () => {
+const WeatherCard = ({ weatherData }) => {
+    // console.log(weatherData);
+
     return (
         <TouchableOpacity
             activeOpacity={0.6}
