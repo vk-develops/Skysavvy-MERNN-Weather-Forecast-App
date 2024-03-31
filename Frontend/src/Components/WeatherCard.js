@@ -2,9 +2,10 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
 
-const WeatherCard = ({ weatherData }) => {
+const WeatherCard = ({ onPress, weatherData }) => {
     return (
         <TouchableOpacity
+            onPress={onPress}
             activeOpacity={0.6}
             style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
             className="px-5 pb-5 rounded-lg relative"
