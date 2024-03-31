@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const WeatherInfo = () => {
+const WeatherInfo = ({ wind, temp, humid }) => {
     return (
         <View
             style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
@@ -18,7 +18,7 @@ const WeatherInfo = () => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-[24px] text-white text-center"
                 >
-                    245
+                    {wind}kh
                 </Text>
             </View>
 
@@ -38,7 +38,7 @@ const WeatherInfo = () => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-[24px] text-white text-center"
                 >
-                    24&deg;
+                    {temp}&deg;
                 </Text>
             </View>
 
@@ -58,7 +58,7 @@ const WeatherInfo = () => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-[24px] text-white text-center"
                 >
-                    24%
+                    {humid}%
                 </Text>
             </View>
         </View>

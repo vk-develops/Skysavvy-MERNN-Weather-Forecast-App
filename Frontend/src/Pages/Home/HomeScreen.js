@@ -89,6 +89,10 @@ const HomeScreen = ({ navigation }) => {
                                 onPress={() =>
                                     navigation.navigate("HomeTab", {
                                         screen: "WeatherDetailScreen",
+                                        params: {
+                                            weatherData: weatherData,
+                                            locName: weatherData.location.name,
+                                        },
                                     })
                                 }
                                 weatherData={weatherData}
