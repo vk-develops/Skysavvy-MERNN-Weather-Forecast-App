@@ -22,6 +22,11 @@ const WeatherInfo = () => {
                 </Text>
             </View>
 
+            <View
+                style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                className="h-16 w-[2px]"
+            ></View>
+
             <View>
                 <Text
                     style={{ fontFamily: "plexRegular" }}
@@ -36,6 +41,12 @@ const WeatherInfo = () => {
                     24&deg;
                 </Text>
             </View>
+
+            <View
+                style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                className="h-16 w-[2px]"
+            ></View>
+
             <View>
                 <Text
                     style={{ fontFamily: "plexRegular" }}
