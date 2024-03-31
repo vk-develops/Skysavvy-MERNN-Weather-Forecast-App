@@ -34,7 +34,7 @@ const WeatherCard = ({ onPress, weatherData }) => {
                         style={{ fontFamily: "plexRegular" }}
                         className="text-sm text-white"
                     >
-                        H:{weatherData.current.humidity}
+                        UV:{weatherData.current.uv}
                     </Text>
                 </View>
                 <View className="flex items-center justify-between flex-row">
