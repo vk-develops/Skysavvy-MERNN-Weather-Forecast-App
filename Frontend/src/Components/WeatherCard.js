@@ -1,8 +1,15 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
+import { weatherImg } from "../Data/weatherImg";
 
 const WeatherCard = ({ onPress, weatherData }) => {
+    const isDay = weatherData.current.is_day === 1;
+    const timeOfDay = isDay ? "Day" : "Night";
+    const image = weatherData.current.condition.text + timeOfDay;
+
+    console.log(image);
+
     return (
         <TouchableOpacity
             onPress={onPress}
@@ -16,10 +23,10 @@ const WeatherCard = ({ onPress, weatherData }) => {
             >
                 {weatherData.current.temp_c}&deg;
             </Text>
-            <View className="absolute top-5 right-0">
+            <View className="absolute top-5 right-5">
                 <Image
-                    source={Img}
-                    className="h-[135px] w-[180px]"
+                    source={weatherImg[image]}
+                    className="h-[160px] w-[160px]"
                 />
             </View>
             <View className="mt-5">
