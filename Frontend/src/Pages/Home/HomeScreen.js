@@ -85,7 +85,18 @@ const HomeScreen = ({ navigation }) => {
                 <View className="px-5 mt-8">
                     {weatherData && (
                         <View>
-                            <WeatherCard weatherData={weatherData} />
+                            <WeatherCard
+                                onPress={() =>
+                                    navigation.navigate("HomeTab", {
+                                        screen: "WeatherDetailScreen",
+                                        params: {
+                                            weatherData: weatherData,
+                                            locName: weatherData.location.name,
+                                        },
+                                    })
+                                }
+                                weatherData={weatherData}
+                            />
                             <View className="mt-5">
                                 <MiniWeatherCard />
                             </View>
