@@ -1,10 +1,9 @@
-import { ActivityIndicator, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, ScrollView, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { LinearGradient } from "expo-linear-gradient";
 import WeatherCard from "../../Components/WeatherCard";
 import Header from "../../Components/Header";
-import MiniWeatherCard from "../../Components/MiniWeatherCard";
 import useGetWeatherData from "../../Hooks/useGetWeatherData";
 import MultipleWeatherDataComponent from "../../Components/MultipleWeatherDataComponent";
 
@@ -74,15 +73,6 @@ const HomeScreen = ({ navigation }) => {
             setWeatherData(weatherDataFromHook);
         }
     }, [weatherDataFromHook]);
-
-    // useEffect(() => {
-    //     getWeatherData();
-    //     // const { data, isLoading } = useGetWeatherData(mainURL);
-
-    //     // if (data) {
-    //     //     setWeatherData(data);
-    //     // }
-    // }, [city]);
 
     return (
         <ScrollView className="flex-1">
