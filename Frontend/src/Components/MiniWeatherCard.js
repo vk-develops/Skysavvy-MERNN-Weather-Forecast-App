@@ -2,12 +2,13 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
 
-const MiniWeatherCard = ({ weatherData }) => {
+const MiniWeatherCard = ({ weatherData, onPress }) => {
     return (
         <TouchableOpacity
+            onPress={onPress}
             activeOpacity={0.6}
             style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-            className="px-5 pb-5 rounded-lg relative"
+            className="px-5 pb-5 rounded-lg relative mt-5"
         >
             <View className="py-2 -mb-5 flex items-center justify-between flex-row">
                 <View className="flex items-center justify-center gap-2 flex-row">
