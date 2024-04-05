@@ -105,7 +105,7 @@ const HomeScreen = ({ navigation }) => {
                                 }
                                 weatherData={weatherData}
                             />
-                            <View className="mt-5">
+                            <View className="mt-5 mb-12">
                                 <MultipleWeatherDataComponent
                                     navigation={navigation}
                                 />

@@ -23,7 +23,7 @@ const MultipleWeatherDataComponent = ({ navigation }) => {
     };
 
     useEffect(() => {
-        const cities = ["Mexico", "Paris", "Tokyo"];
+        const cities = ["Mexico", "Paris", "Tokyo", "Beijing", "Seoul"];
         const fetchDataForCities = async () => {
             const weatherDataPromises = cities.map((city) =>
                 fetchWeatherData(city)
