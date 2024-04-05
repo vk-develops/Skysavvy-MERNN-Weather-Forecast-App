@@ -6,7 +6,8 @@ import { weatherImg } from "../Data/weatherImg";
 const WeatherCard = ({ onPress, weatherData }) => {
     const isDay = weatherData.current.is_day === 1;
     const timeOfDay = isDay ? "Day" : "Night";
-    const image = weatherData.current.condition.text + timeOfDay;
+    const image =
+        weatherData.current.condition.text.replace(/\s/g, "") + timeOfDay;
 
     console.log(image);
 
