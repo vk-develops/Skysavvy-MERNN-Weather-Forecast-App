@@ -42,7 +42,10 @@ const MultipleWeatherDataComponent = () => {
             {isLoading && <ActivityIndicator />}
             {weatherDataArray.length
                 ? weatherDataArray.map((weatherInfo, index) => (
-                      <MiniWeatherCard key={index} />
+                      <MiniWeatherCard
+                          key={index}
+                          weatherData={weatherInfo}
+                      />
                   ))
                 : null}
         </View>

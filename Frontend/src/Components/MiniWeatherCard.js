@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
 
-const MiniWeatherCard = () => {
+const MiniWeatherCard = ({ weatherData }) => {
     return (
         <TouchableOpacity
             activeOpacity={0.6}
@@ -18,31 +18,31 @@ const MiniWeatherCard = () => {
                     <View>
                         <Text
                             style={{ fontFamily: "plexMedium" }}
-                            className="text-base text-white"
+                            className="text-[19px] text-white"
                         >
-                            Morning Mist
+                            {weatherData.current.condition.text}
                         </Text>
-                        <View className="flex items-center justify-start flex-row gap-2">
+                        <View className="flex items-center justify-start flex-row gap-2 pt-1">
                             <Text
                                 style={{ fontFamily: "plexRegular" }}
-                                className="text-xs text-white"
+                                className="text-[13px] text-slate-300"
                             >
-                                H:12
+                                H:{weatherData.current.humidity}
                             </Text>
                             <Text
                                 style={{ fontFamily: "plexRegular" }}
-                                className="text-xs text-white"
+                                className="text-[13px] text-slate-300"
                             >
-                                H:14
+                                UV:{weatherData.current.uv}
                             </Text>
                         </View>
                     </View>
                 </View>
                 <Text
-                    style={{ fontFamily: "plexBold" }}
-                    className="text-[56px] text-white -mt-3"
+                    style={{ fontFamily: "plexMedium" }}
+                    className="text-[45px] text-white -mt-3"
                 >
-                    19&deg;
+                    {weatherData.current.temp_c}&deg;
                 </Text>
             </View>
         </TouchableOpacity>
