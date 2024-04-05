@@ -6,6 +6,7 @@ import WeatherCard from "../../Components/WeatherCard";
 import Header from "../../Components/Header";
 import MiniWeatherCard from "../../Components/MiniWeatherCard";
 import useGetWeatherData from "../../Hooks/useGetWeatherData";
+import MultipleWeatherDataComponent from "../../Components/MultipleWeatherDataComponent";
 
 const HomeScreen = ({ navigation }) => {
     const [location, setLocation] = useState(null);
@@ -115,7 +116,7 @@ const HomeScreen = ({ navigation }) => {
                                 weatherData={weatherData}
                             />
                             <View className="mt-5">
-                                <MiniWeatherCard />
+                                <MultipleWeatherDataComponent />
                             </View>
                         </View>
                     )}

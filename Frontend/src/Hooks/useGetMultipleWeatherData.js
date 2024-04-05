@@ -19,7 +19,8 @@ const useGetMultipleWeatherData = (urls) => {
             const weatherData = await Promise.all(fetchPromises);
             setData(weatherData.filter((data) => data != null));
         } catch (err) {
-            useErrorToast(err.message);
+            console.log(err);
+            useErrorToast({ msg: err.message });
         } finally {
             setIsLoading(false);
         }
