@@ -1,7 +1,6 @@
 import { View, Text, ScrollView, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import WeatherLogo from "../../../assets/Images/MorningMistImg.png";
 import WeatherInfo from "../../Components/WeatherInfo";
 import { weatherImg } from "../../Data/weatherImg";
 
