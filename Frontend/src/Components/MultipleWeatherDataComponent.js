@@ -2,7 +2,7 @@ import { View, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import MiniWeatherCard from "./MiniWeatherCard";
 
-const MultipleWeatherDataComponent = ({ onPress }) => {
+const MultipleWeatherDataComponent = ({ navigation }) => {
     const [weatherDataArray, setWeatherDataArray] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -45,7 +45,7 @@ const MultipleWeatherDataComponent = ({ onPress }) => {
                       <MiniWeatherCard
                           key={index}
                           weatherData={weatherInfo}
-                          onPress={onPress}
+                          navigation={navigation}
                       />
                   ))
                 : null}

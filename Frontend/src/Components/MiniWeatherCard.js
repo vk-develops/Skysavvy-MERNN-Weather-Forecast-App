@@ -2,10 +2,20 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/MorningMistImg.png";
 
-const MiniWeatherCard = ({ weatherData, onPress }) => {
+const MiniWeatherCard = ({ weatherData, navigation }) => {
+    const handleNavigation = () => {
+        navigation.navigate("HomeTab", {
+            screen: "WeatherDetailScreen",
+            params: {
+                weatherData: weatherData,
+                locName: weatherData.location.name,
+            },
+        });
+    };
+
     return (
         <TouchableOpacity
-            onPress={onPress}
+            onPress={handleNavigation}
             activeOpacity={0.6}
             style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
             className="px-5 pb-5 rounded-lg relative mt-5"

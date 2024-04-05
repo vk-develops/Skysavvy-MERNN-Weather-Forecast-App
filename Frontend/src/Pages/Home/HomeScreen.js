@@ -107,16 +107,7 @@ const HomeScreen = ({ navigation }) => {
                             />
                             <View className="mt-5">
                                 <MultipleWeatherDataComponent
-                                    onPress={() =>
-                                        navigation.navigate("HomeTab", {
-                                            screen: "WeatherDetailScreen",
-                                            params: {
-                                                weatherData: weatherData,
-                                                locName:
-                                                    weatherData.location.name,
-                                            },
-                                        })
-                                    }
+                                    navigation={navigation}
                                 />
                             </View>
                         </View>
