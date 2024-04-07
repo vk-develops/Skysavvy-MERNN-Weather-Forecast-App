@@ -7,8 +7,6 @@ import { weatherImg } from "../../Data/weatherImg";
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { weatherData, locName } = route.params;
 
-    console.log(weatherData, locName);
-
     const location = weatherData.location;
     const current = weatherData.current;
 
