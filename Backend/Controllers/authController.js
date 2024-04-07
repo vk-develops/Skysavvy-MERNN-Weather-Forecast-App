@@ -102,10 +102,12 @@ const registerUser = asyncHandler(async (req, res) => {
             // Sending the mail and handling the response
             mailTransport().sendMail(message, (error, info) => {
                 if (error) {
-                    console.error("Error occurred while sending email:", error);
-                } else {
-                    console.log("Email sent successfully:", info.response);
+                    console.error(
+                        "Error occurred while sending email:",
+                        error.message
+                    );
                 }
+                console.log("Email sent successfully:", info.response);
             });
 
             //Destructuring the user details

@@ -1,14 +1,12 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import Img from "../../assets/Images/MorningMistImg.png";
 import { weatherImg } from "../Data/weatherImg";
 
 const WeatherCard = ({ onPress, weatherData }) => {
     const isDay = weatherData.current.is_day === 1;
     const timeOfDay = isDay ? "Day" : "Night";
-    const image = weatherData.current.condition.text + timeOfDay;
-
-    console.log(image);
+    const image =
+        weatherData.current.condition.text.replace(/\s/g, "") + timeOfDay;
 
     return (
         <TouchableOpacity

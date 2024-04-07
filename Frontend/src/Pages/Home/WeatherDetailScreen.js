@@ -1,16 +1,19 @@
 import { View, Text, ScrollView, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import WeatherLogo from "../../../assets/Images/MorningMistImg.png";
 import WeatherInfo from "../../Components/WeatherInfo";
+import { weatherImg } from "../../Data/weatherImg";
 
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { weatherData, locName } = route.params;
 
-    console.log(weatherData, locName);
-
     const location = weatherData.location;
     const current = weatherData.current;
+
+    const isDay = weatherData.current.is_day === 1;
+    const timeOfDay = isDay ? "Day" : "Night";
+    const image =
+        weatherData.current.condition.text.replace(/\s/g, "") + timeOfDay;
 
     return (
         <ScrollView className="flex-1">
@@ -39,8 +42,8 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                     </View>
                     <View className="flex items-center justify-center mt-10">
                         <Image
-                            className="h-[220px] w-[300px]"
-                            source={WeatherLogo}
+                            className="h-[260px] w-[280px]"
+                            source={weatherImg[image]}
                         />
                     </View>
                     <View className="pt-4">
