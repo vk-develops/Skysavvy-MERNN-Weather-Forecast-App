@@ -1,8 +1,15 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import useLogout from "../../Hooks/useLogout";
 
 const ProfileScreen = () => {
+    const { logoutHandler } = useLogout();
+
+    const handleLogout = async () => {
+        await logoutHandler();
+    };
+
     return (
         <ScrollView className="flex-1">
             <LinearGradient
@@ -15,6 +22,7 @@ const ProfileScreen = () => {
             >
                 <View className="mt-12">
                     <TouchableOpacity
+                        onPress={handleLogout}
                         activeOpacity={0.7}
                         className="bg-yellow-400 w-2/3 m-auto rounded-2xl"
                     >
