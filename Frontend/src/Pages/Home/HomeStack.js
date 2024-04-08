@@ -5,6 +5,7 @@ import {
 } from "@react-navigation/stack";
 import HomeScreen from "./HomeScreen";
 import WeatherDetailScreen from "./WeatherDetailScreen";
+import TopBarNavigator from "../../Navigation/TopBarNavigator";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,7 @@ const HomeStack = () => {
             />
             <Stack.Screen
                 name="WeatherDetailScreen"
-                component={WeatherDetailScreen}
+                component={TopBarNavigator}
             />
         </Stack.Navigator>
     );
