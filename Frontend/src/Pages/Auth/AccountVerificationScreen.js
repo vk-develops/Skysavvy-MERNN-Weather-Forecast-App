@@ -27,7 +27,6 @@ const AccountVerificationScreen = () => {
 
         try {
             const response = await verifyAccount({ otp }).unwrap();
-            console.log(response);
             if (response.success) {
                 const userInfo = response.userInfo;
                 dispatch(setCredentials(userInfo));
