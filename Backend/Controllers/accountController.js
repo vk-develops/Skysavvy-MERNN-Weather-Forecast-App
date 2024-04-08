@@ -67,19 +67,13 @@ const verifyAccount = asyncHandler(async (req, res) => {
                         };
 
                         // Sending the mail and handling the response
-                        mailTransport().sendMail(message, (error, info) => {
-                            if (error) {
-                                console.error(
-                                    "Error occurred while sending email:",
-                                    error
-                                );
-                            } else {
-                                console.log(
-                                    "Email sent successfully:",
-                                    info.response
-                                );
-                            }
-                        });
+                        const sentMail = await mailTransport().sendMail(
+                            message
+                        );
+                        console.log(
+                            "Email sent successfully",
+                            sentMail.response
+                        );
 
                         //Deleting the verification record
                         await verificationRecord.deleteOne();
