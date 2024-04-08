@@ -21,14 +21,14 @@ const MiniWeatherCard = ({ weatherData, navigation }) => {
             style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
             className="px-5 pb-5 rounded-lg relative mt-5"
         >
-            <View className="pb-[2px] pt-[12px] flex items-center justify-start flex-row gap-[5px]">
+            <View className="pb-[6px] pt-[12px] flex items-center justify-start flex-row gap-[5px]">
                 <Ionicons
                     name="location-outline"
                     size={22}
                     color="rgb(253, 224, 71)"
                 />
                 <Text
-                    className="text-yellow-300 text-[20px]"
+                    className="text-slate-300 text-base"
                     style={{ fontFamily: "plexMedium" }}
                 >
                     {weatherData.location.name}

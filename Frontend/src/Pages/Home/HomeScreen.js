@@ -1,4 +1,4 @@
-import { ActivityIndicator, ScrollView, View } from "react-native";
+import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { LinearGradient } from "expo-linear-gradient";
@@ -93,6 +93,12 @@ const HomeScreen = ({ navigation }) => {
                     {isLoading && <ActivityIndicator />}
                     {weatherData && (
                         <View>
+                            <Text
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[22px] pt-2 pb-4"
+                            >
+                                Today's Forecast
+                            </Text>
                             <WeatherCard
                                 onPress={() =>
                                     navigation.navigate("HomeTab", {
@@ -106,6 +112,13 @@ const HomeScreen = ({ navigation }) => {
                                 weatherData={weatherData}
                             />
                             <View className="mt-5 mb-12">
+                                <Text
+                                    style={{ fontFamily: "plexSemiBold" }}
+                                    className="text-white text-[22px] pt-4"
+                                >
+                                    Popular Locations
+                                </Text>
+
                                 <MultipleWeatherDataComponent
                                     navigation={navigation}
                                 />

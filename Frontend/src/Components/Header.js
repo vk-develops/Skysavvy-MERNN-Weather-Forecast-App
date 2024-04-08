@@ -10,7 +10,7 @@ const Header = ({ onPress }) => {
             intensity={60}
             className="z-10"
         >
-            <View className="flex items-center justify-between flex-row p-4">
+            <View className="flex items-center justify-between flex-row p-4 ">
                 <TouchableOpacity
                     onPress={onPress}
                     activeOpacity={0.8}
