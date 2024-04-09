@@ -2,7 +2,9 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/WeatherImages/WeatherClearSky-Day.png";
 
-const HourlyForecastCard = () => {
+const HourlyForecastCard = ({ forecast }) => {
+    const time = forecast.time.split(" ")[1];
+
     return (
         <View className="flex items-center justify-center flex-row gap-2 mr-3">
             <View
@@ -13,7 +15,8 @@ const HourlyForecastCard = () => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-white text-base text-center"
                 >
-                    12:34pm
+                    {time}
+                    {time.split(":")[0] < 12 ? `am` : `pm`}
                 </Text>
                 <View className="flex items-center justify-center mt-3">
                     <Image
@@ -24,14 +27,14 @@ const HourlyForecastCard = () => {
                         style={{ fontFamily: "plexMedium" }}
                         className="text-slate-200 text-xs pt-1"
                     >
-                        Clear Sky
+                        {forecast.condition.text}
                     </Text>
                 </View>
                 <Text
                     style={{ fontFamily: "plexSemiBold" }}
                     className="text-[22px] text-white text-center pt-2"
                 >
-                    12.3&deg;
+                    {forecast.temp_c}&deg;
                 </Text>
             </View>
         </View>
