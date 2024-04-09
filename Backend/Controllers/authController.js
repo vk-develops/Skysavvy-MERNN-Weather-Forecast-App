@@ -103,16 +103,6 @@ const registerUser = asyncHandler(async (req, res) => {
             const sentMail = await mailTransport().sendMail(message);
             console.log("Email sent successfully", sentMail.response);
 
-            // mailTransport().sendMail(message, (error, info) => {
-            //     if (error) {
-            //         console.error(
-            //             "Error occurred while sending email:",
-            //             error.message
-            //         );
-            //     }
-            //     console.log("Email sent successfully:", info.response);
-            // });
-
             //Destructuring the user details
             const { password, ...resetofUserDetails } = user._doc;
 

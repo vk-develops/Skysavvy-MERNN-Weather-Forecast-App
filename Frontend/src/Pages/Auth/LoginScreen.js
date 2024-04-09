@@ -26,14 +26,12 @@ const RegisterScreen = ({ navigation }) => {
     const submitHandler = async () => {
         try {
             const response = await login({ email, password }).unwrap();
-            console.log(response);
             if (response.success) {
                 const userInfo = response.userInfo;
                 dispatch(setCredentials(userInfo));
                 useSuccessToast({ msg: response.message });
             }
         } catch (err) {
-            console.log(err.data.message);
             useErrorToast({ msg: err.data.message });
         }
     };

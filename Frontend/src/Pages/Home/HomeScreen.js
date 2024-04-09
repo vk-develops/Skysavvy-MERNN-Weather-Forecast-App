@@ -1,9 +1,9 @@
-import { ActivityIndicator, ScrollView, View } from "react-native";
+import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 import WeatherCard from "../../Components/WeatherCard";
-import Header from "../../Components/Header";
 import useGetWeatherData from "../../Hooks/useGetWeatherData";
 import MultipleWeatherDataComponent from "../../Components/MultipleWeatherDataComponent";
 
@@ -12,20 +12,6 @@ const HomeScreen = ({ navigation }) => {
     const [address, setAddress] = useState(null);
     const [city, setCity] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-
-    const getWeatherData = async () => {
-        try {
-            const response = await fetch(
-                `${process.env.EXPO_PUBLIC_WEATHER_API_CURRENT}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${city}`
-            );
-            if (response.ok) {
-                const data = await response.json();
-                setWeatherData(data);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     useEffect(() => {
         const getLocationPermission = async () => {
@@ -76,6 +62,10 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <ScrollView className="flex-1">
+            <StatusBar
+                backgroundColor="rgba(35, 34, 123, 0.7)"
+                style="light"
+            />
             <LinearGradient
                 contentContainerStyle={{
                     alignItems: "center",
@@ -84,15 +74,16 @@ const HomeScreen = ({ navigation }) => {
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
-                <Header
-                    onPress={() => {
-                        navigation.toggleDrawer();
-                    }}
-                />
                 <View className="px-5 mt-8">
                     {isLoading && <ActivityIndicator />}
                     {weatherData && (
                         <View>
+                            <Text
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[22px] pt-2 pb-4"
+                            >
+                                Today's Forecast
+                            </Text>
                             <WeatherCard
                                 onPress={() =>
                                     navigation.navigate("HomeTab", {
@@ -106,6 +97,13 @@ const HomeScreen = ({ navigation }) => {
                                 weatherData={weatherData}
                             />
                             <View className="mt-5 mb-12">
+                                <Text
+                                    style={{ fontFamily: "plexSemiBold" }}
+                                    className="text-white text-[22px] pt-4"
+                                >
+                                    Popular Locations
+                                </Text>
+
                                 <MultipleWeatherDataComponent
                                     navigation={navigation}
                                 />
