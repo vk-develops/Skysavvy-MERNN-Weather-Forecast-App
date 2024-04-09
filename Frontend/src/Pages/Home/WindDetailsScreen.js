@@ -164,6 +164,58 @@ const VisibilityInfo = ({ visibility, gust, uv }) => {
     );
 };
 
+const AirQualityInfo = ({ co, no, o }) => {
+    return (
+        <View
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+            className="flex items-center justify-between flex-row p-6 rounded-lg mt-[14px]"
+        >
+            <View>
+                <Text
+                    style={{ fontFamily: "plexRegular" }}
+                    className="text-[15px] text-slate-300 text-center"
+                >
+                    Carbon Monoxide
+                </Text>
+                <Text
+                    style={{ fontFamily: "plexMedium" }}
+                    className="text-[24px] text-white text-center"
+                >
+                    {co}
+                </Text>
+            </View>
+            <View>
+                <Text
+                    style={{ fontFamily: "plexRegular" }}
+                    className="text-[15px] text-slate-300 text-center"
+                >
+                    Nitrogen Dioxide
+                </Text>
+                <Text
+                    style={{ fontFamily: "plexMedium" }}
+                    className="text-[24px] text-white text-center"
+                >
+                    {no}
+                </Text>
+            </View>
+            <View>
+                <Text
+                    style={{ fontFamily: "plexRegular" }}
+                    className="text-[15px] text-slate-300 text-center"
+                >
+                    Ozone
+                </Text>
+                <Text
+                    style={{ fontFamily: "plexMedium" }}
+                    className="text-[24px] text-white text-center"
+                >
+                    {o}
+                </Text>
+            </View>
+        </View>
+    );
+};
+
 const WindDetailsScreen = ({ route }) => {
     const { locName } = route.params;
 
@@ -193,57 +245,73 @@ const WindDetailsScreen = ({ route }) => {
 
     return (
         <ScrollView className="flex-1">
-            {isLoading && <ActivityIndicator />}
-            <LinearGradient
-                contentContainerStyle={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
-                className="min-h-screen"
-                colors={["#23227B", "#000236"]}
-            >
-                <View className="m-5">
-                    <View>
-                        <Text
-                            style={{ fontFamily: "plexMedium" }}
-                            className="text-white text-[22px]"
-                        >
-                            Wind Details
-                        </Text>
-                        <WindInfo
-                            wind={weatherDetail.current.wind_kph}
-                            degree={weatherDetail.current.wind_degree}
-                            direction={weatherDetail.current.wind_dir}
-                        />
+            {isLoading ? (
+                <ActivityIndicator />
+            ) : (
+                <LinearGradient
+                    contentContainerStyle={{
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                    className="min-h-screen"
+                    colors={["#23227B", "#000236"]}
+                >
+                    <View className="m-5">
+                        <View>
+                            <Text
+                                style={{ fontFamily: "plexMedium" }}
+                                className="text-white text-[22px]"
+                            >
+                                Wind Details
+                            </Text>
+                            <WindInfo
+                                wind={weatherDetail.current.wind_kph}
+                                degree={weatherDetail.current.wind_degree}
+                                direction={weatherDetail.current.wind_dir}
+                            />
+                        </View>
+                        <View className="mt-6">
+                            <Text
+                                style={{ fontFamily: "plexMedium" }}
+                                className="text-white text-[22px]"
+                            >
+                                Atmospheric Measurements
+                            </Text>
+                            <AtmosphericInfo
+                                pressure={weatherDetail.current.pressure_mb}
+                                percipitaion={weatherDetail.current.precip_mm}
+                                humidity={weatherDetail.current.humidity}
+                            />
+                        </View>
+                        <View className="mt-6">
+                            <Text
+                                style={{ fontFamily: "plexMedium" }}
+                                className="text-white text-[22px]"
+                            >
+                                Visibility Measurements
+                            </Text>
+                            <VisibilityInfo
+                                visibility={weatherDetail.current.vis_km}
+                                gust={weatherDetail.current.gust_kph}
+                                uv={weatherDetail.current.uv}
+                            />
+                        </View>
+                        <View className="mt-6">
+                            <Text
+                                style={{ fontFamily: "plexMedium" }}
+                                className="text-white text-[22px]"
+                            >
+                                Air Quality
+                            </Text>
+                            <AirQualityInfo
+                                co={weatherDetail.current.air_quality.co}
+                                no={weatherDetail.current.air_quality.no2}
+                                o={weatherDetail.current.air_quality.o3}
+                            />
+                        </View>
                     </View>
-                    <View className="mt-6">
-                        <Text
-                            style={{ fontFamily: "plexMedium" }}
-                            className="text-white text-[22px]"
-                        >
-                            Atmospheric Measurements
-                        </Text>
-                        <AtmosphericInfo
-                            pressure={weatherDetail.current.pressure_mb}
-                            percipitaion={weatherDetail.current.precip_mm}
-                            humidity={weatherDetail.current.humidity}
-                        />
-                    </View>
-                    <View className="mt-6">
-                        <Text
-                            style={{ fontFamily: "plexMedium" }}
-                            className="text-white text-[22px]"
-                        >
-                            Visibility Measurements
-                        </Text>
-                        <VisibilityInfo
-                            visibility={weatherDetail.current.vis_km}
-                            gust={weatherDetail.current.gust_kph}
-                            uv={weatherDetail.current.uv}
-                        />
-                    </View>
-                </View>
-            </LinearGradient>
+                </LinearGradient>
+            )}
         </ScrollView>
     );
 };
