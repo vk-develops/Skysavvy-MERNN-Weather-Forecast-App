@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import HourlyForecastCard from "./HourlyForecastCard";
 
 const HourlyForecast = ({ locName }) => {
-    const [hourlyForecast, setHourlyForecast] = useState([]);
+    const [hourlyWeatherForecast, setHourlyWeatherForecast] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchHourlyForecast = async () => {
@@ -14,8 +14,8 @@ const HourlyForecast = ({ locName }) => {
 
             if (response.ok) {
                 const data = await response.json();
-
-                setHourlyForecast(data);
+                const hourData = data.forecast.forecastday[0].hour;
+                setHourlyWeatherForecast(hourData);
             }
         } catch (error) {
             console.log(error.message);
@@ -29,17 +29,20 @@ const HourlyForecast = ({ locName }) => {
     }, []);
 
     return (
-        <ScrollView>
+        <ScrollView
+            horizontal={true}
+            className="p-5"
+        >
             {isLoading ? (
                 <ActivityIndicator />
-            ) : (
-                hourlyForecast.map((forecast, index) => (
+            ) : hourlyWeatherForecast.length > 0 ? (
+                hourlyWeatherForecast.map((forecast, index) => (
                     <HourlyForecastCard
                         key={index}
                         forecast={forecast}
                     />
                 ))
-            )}
+            ) : null}
         </ScrollView>
     );
 };

@@ -63,7 +63,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                         />
                     </View>
                     <View className="my-8">
-                        <HourlyForecast />
+                        <HourlyForecast locName={locName} />
                     </View>
                 </View>
             </LinearGradient>
