@@ -4,7 +4,6 @@ import {
     CardStyleInterpolators,
 } from "@react-navigation/stack";
 import HomeScreen from "./HomeScreen";
-import WeatherDetailScreen from "./WeatherDetailScreen";
 import TopBarNavigator from "../../Navigation/TopBarNavigator";
 
 const Stack = createStackNavigator();
