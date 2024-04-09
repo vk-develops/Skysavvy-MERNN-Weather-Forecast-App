@@ -1,13 +1,11 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { BlurView } from "expo-blur";
 import { FontAwesome6 } from "@expo/vector-icons";
 
 const Header = ({ onPress }) => {
     return (
-        <BlurView
-            experimentalBlurMethod="dimezisBlurView"
-            intensity={60}
+        <View
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
             className="z-10"
         >
             <View className="flex items-center justify-between flex-row p-4 ">
@@ -28,7 +26,7 @@ const Header = ({ onPress }) => {
                     SkySavvy
                 </Text>
             </View>
-        </BlurView>
+        </View>
     );
 };
 
