@@ -7,6 +7,7 @@ import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import HomeScreen from "./HomeScreen";
 import TopBarNavigator from "../../Navigation/TopBarNavigator";
 import { TouchableOpacity } from "react-native";
+import SearchScreen from "./SearchScreen";
 
 const Stack = createStackNavigator();
 
@@ -75,6 +76,10 @@ const HomeStack = ({ navigation }) => {
                 })}
                 name="WeatherDetailScreen"
                 component={TopBarNavigator}
+            />
+            <Stack.Screen
+                name="SearchScree"
+                component={SearchScreen}
             />
         </Stack.Navigator>
     );
