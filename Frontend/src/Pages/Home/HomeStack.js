@@ -21,9 +21,13 @@ const HomeStack = ({ navigation }) => {
         >
             <Stack.Screen
                 options={{
+                    headerStyle: {
+                        backgroundColor: "rgba(35, 34, 123, 0.7)",
+                    },
                     headerTitleStyle: {
                         fontFamily: "plexMedium",
                         fontSize: 20,
+                        color: "#fff",
                     },
                     headerTitle: "SkySavvy",
                     headerRight: () => (
@@ -35,7 +39,7 @@ const HomeStack = ({ navigation }) => {
                             <FontAwesome6
                                 name="bars-staggered"
                                 size={24}
-                                color="black"
+                                color="white"
                             />
                         </TouchableOpacity>
                     ),
@@ -45,10 +49,14 @@ const HomeStack = ({ navigation }) => {
             />
             <Stack.Screen
                 options={({ route }) => ({
+                    headerStyle: {
+                        backgroundColor: "rgba(35, 34, 123, 0.7)",
+                    },
                     headerTitle: route.params.locName,
                     headerTitleStyle: {
                         fontFamily: "plexMedium",
                         fontSize: 18,
+                        color: "#fff",
                     },
                     headerTitleAlign: "center",
                     headerLeft: () => (
@@ -60,7 +68,7 @@ const HomeStack = ({ navigation }) => {
                             <Ionicons
                                 name="chevron-back"
                                 size={24}
-                                color="black"
+                                color="white"
                             />
                         </TouchableOpacity>
                     ),

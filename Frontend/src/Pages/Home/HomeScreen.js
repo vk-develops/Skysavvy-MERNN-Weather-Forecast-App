@@ -63,8 +63,8 @@ const HomeScreen = ({ navigation }) => {
     return (
         <ScrollView className="flex-1">
             <StatusBar
-                backgroundColor="#FFFFFF"
-                style="dark"
+                backgroundColor="rgba(35, 34, 123, 0.7)"
+                style="light"
             />
             <LinearGradient
                 contentContainerStyle={{

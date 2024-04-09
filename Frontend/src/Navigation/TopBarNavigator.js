@@ -14,7 +14,7 @@ const TopBarNavigator = ({ route }) => {
             screenOptions={{
                 tabBarLabelStyle: {
                     fontFamily: "plexMedium",
-                    fontSize: 14,
+                    fontSize: 15,
                     textTransform: "capitalize",
                 },
                 tabBarIndicatorStyle: {
@@ -36,7 +36,7 @@ const TopBarNavigator = ({ route }) => {
             />
             <TopTab.Screen
                 options={{
-                    tabBarLabel: "Measurements",
+                    tabBarLabel: "Measurement",
                 }}
                 name="WindDetailsScreen"
                 component={WindDetailsScreen}
