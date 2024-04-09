@@ -11,11 +11,13 @@ const Stack = createStackNavigator();
 const HomeStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{
-                gestureEnabled: true,
-                gestureDirection: "horizontal",
-                cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-            }}
+            screenOptions={
+                {
+                    // gestureEnabled: true,
+                    // gestureDirection: "horizontal",
+                    // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+                }
+            }
         >
             <Stack.Screen
                 options={{
