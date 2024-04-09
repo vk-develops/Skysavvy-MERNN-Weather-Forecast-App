@@ -10,11 +10,16 @@ import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { sampleCities } from "../../Data/sampleCities";
 
-const DisplaySampleCities = () => {
+const DisplaySampleCities = ({ navigation }) => {
     return (
         <View>
             {sampleCities.map((city, index) => (
                 <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate("WeatherDetailScreen", {
+                            locName: city.name,
+                        });
+                    }}
                     key={index}
                     className="flex items-center justify-start flex-row border-b-[1px] border-neutral-200 py-6"
                 >
@@ -36,7 +41,7 @@ const DisplaySampleCities = () => {
     );
 };
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
     const [search, setSearch] = useState("");
 
     return (
@@ -81,7 +86,7 @@ const SearchScreen = () => {
                             >
                                 Popular Searches
                             </Text>
-                            <DisplaySampleCities />
+                            <DisplaySampleCities navigation={navigation} />
                         </View>
                     </View>
                 </View>
