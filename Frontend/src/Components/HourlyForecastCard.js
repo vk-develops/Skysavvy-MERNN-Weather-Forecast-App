@@ -5,10 +5,18 @@ import Img from "../../assets/Images/WeatherImages/WeatherClearSky-Day.png";
 const HourlyForecastCard = ({ forecast }) => {
     const time = forecast.time.split(" ")[1];
 
+    const date = new Date();
+    const hour = date.getHours();
+
     return (
         <View className="flex items-center justify-center flex-row gap-2 mr-3">
             <View
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
+                style={{
+                    backgroundColor:
+                        Number(time.split(":")[0]) === Number(hour)
+                            ? "rgba(133, 77, 14, 1)"
+                            : "rgba(255, 255, 255, 0.3)",
+                }}
                 className="px-4 py-3 rounded-xl relative"
             >
                 <Text
