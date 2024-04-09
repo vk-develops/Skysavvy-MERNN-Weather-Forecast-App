@@ -12,18 +12,20 @@ const TopBarNavigator = ({ route }) => {
     return (
         <TopTab.Navigator
             screenOptions={{
+                tabBarItemStyle: {
+                    backgroundColor: "rgba(35, 34, 123, 0.7)",
+                },
                 tabBarLabelStyle: {
                     fontFamily: "plexMedium",
                     fontSize: 15,
                     textTransform: "capitalize",
                 },
                 tabBarIndicatorStyle: {
-                    backgroundColor: "#facc15",
                     height: 4,
                     borderRadius: 20,
                 },
-                tabBarActiveTintColor: "#854e0d",
-                tabBarInactiveTintColor: "#ccc",
+                tabBarActiveTintColor: "#fff",
+                tabBarInactiveTintColor: "#bbb",
             }}
         >
             <TopTab.Screen
