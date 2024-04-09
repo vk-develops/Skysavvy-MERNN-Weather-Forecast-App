@@ -78,7 +78,31 @@ const HomeStack = ({ navigation }) => {
                 component={TopBarNavigator}
             />
             <Stack.Screen
-                name="SearchScree"
+                options={{
+                    headerStyle: {
+                        backgroundColor: "rgba(35, 34, 123, 0.7)",
+                    },
+                    headerTitleStyle: {
+                        fontFamily: "plexMedium",
+                        fontSize: 18,
+                        color: "#fff",
+                    },
+                    headerTitleAlign: "center",
+                    headerLeft: () => (
+                        <TouchableOpacity
+                            activeOpacity={0.5}
+                            onPress={() => navigation.goBack()}
+                            className="ml-[10px]"
+                        >
+                            <Ionicons
+                                name="chevron-back"
+                                size={24}
+                                color="white"
+                            />
+                        </TouchableOpacity>
+                    ),
+                }}
+                name="SearchScreen"
                 component={SearchScreen}
             />
         </Stack.Navigator>

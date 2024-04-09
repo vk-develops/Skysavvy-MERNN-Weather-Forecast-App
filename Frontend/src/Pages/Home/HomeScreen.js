@@ -83,6 +83,7 @@ const HomeScreen = ({ navigation }) => {
             >
                 <View className="px-5 mt-8">
                     <TouchableOpacity
+                        onPress={() => navigation.navigate("SearchScreen")}
                         activeOpacity={0.6}
                         className="p-[14px] rounded-full mb-4"
                         style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
