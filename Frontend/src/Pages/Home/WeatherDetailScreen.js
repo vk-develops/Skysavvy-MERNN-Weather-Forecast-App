@@ -62,7 +62,13 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                             humid={current.humidity}
                         />
                     </View>
-                    <View className="my-8">
+                    <View className="my-8 z-[5]">
+                        <Text
+                            style={{ fontFamily: "plexSemiBold" }}
+                            className="text-white text-xl pb-3"
+                        >
+                            Hourly Forecasts
+                        </Text>
                         <HourlyForecast locName={locName} />
                     </View>
                 </View>
