@@ -3,7 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import WeatherInfo from "../../Components/WeatherInfo";
 import { weatherImg } from "../../Data/weatherImg";
-import HourlyForecastCard from "../../Components/HourlyForecastCard";
+import HourlyForecast from "../../Components/HourlyForecast";
 
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { weatherData, locName } = route.params;
@@ -63,7 +63,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                         />
                     </View>
                     <View className="my-8">
-                        <HourlyForecastCard />
+                        <HourlyForecast />
                     </View>
                 </View>
             </LinearGradient>
