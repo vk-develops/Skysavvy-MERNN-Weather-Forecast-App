@@ -3,7 +3,7 @@ import {
     createStackNavigator,
     CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import HomeScreen from "./HomeScreen";
 import TopBarNavigator from "../../Navigation/TopBarNavigator";
 import { TouchableOpacity } from "react-native";
@@ -21,7 +21,24 @@ const HomeStack = ({ navigation }) => {
         >
             <Stack.Screen
                 options={{
-                    headerShown: false,
+                    headerTitleStyle: {
+                        fontFamily: "plexMedium",
+                        fontSize: 20,
+                    },
+                    headerTitle: "SkySavvy",
+                    headerRight: () => (
+                        <TouchableOpacity
+                            activeOpacity={0.5}
+                            onPress={() => navigation.openDrawer()}
+                            className="mr-[15px]"
+                        >
+                            <FontAwesome6
+                                name="bars-staggered"
+                                size={24}
+                                color="black"
+                            />
+                        </TouchableOpacity>
+                    ),
                 }}
                 name="HomeScreen"
                 component={HomeScreen}
@@ -36,6 +53,7 @@ const HomeStack = ({ navigation }) => {
                     headerTitleAlign: "center",
                     headerLeft: () => (
                         <TouchableOpacity
+                            activeOpacity={0.5}
                             onPress={() => navigation.goBack()}
                             className="ml-[10px]"
                         >
