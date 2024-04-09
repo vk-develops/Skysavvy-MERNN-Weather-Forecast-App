@@ -29,7 +29,10 @@ const HourlyForecast = ({ locName }) => {
     }, []);
 
     return (
-        <ScrollView horizontal>
+        <ScrollView
+            horizontal
+            contentContainerStyle={{ paddingHorizontal: 0 }}
+        >
             {isLoading ? (
                 <ActivityIndicator />
             ) : hourlyWeatherForecast.length > 0 ? (
