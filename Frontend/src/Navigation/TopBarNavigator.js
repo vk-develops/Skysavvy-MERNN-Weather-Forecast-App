@@ -10,13 +10,34 @@ const TopBarNavigator = ({ route }) => {
     const { weatherData, locName } = route.params;
 
     return (
-        <TopTab.Navigator>
+        <TopTab.Navigator
+            screenOptions={{
+                tabBarLabelStyle: {
+                    fontFamily: "plexMedium",
+                    fontSize: 14,
+                    textTransform: "capitalize",
+                },
+                tabBarIndicatorStyle: {
+                    backgroundColor: "#facc15",
+                    height: 4,
+                    borderRadius: 20,
+                },
+                tabBarActiveTintColor: "#854e0d",
+                tabBarInactiveTintColor: "#ccc",
+            }}
+        >
             <TopTab.Screen
+                options={{
+                    tabBarLabel: "Overview",
+                }}
                 name="WeatherDetailOverview"
                 component={WeatherDetailScreen}
                 initialParams={{ weatherData: weatherData, locName: locName }}
             />
             <TopTab.Screen
+                options={{
+                    tabBarLabel: "Measurements",
+                }}
                 name="WindDetailsScreen"
                 component={WindDetailsScreen}
                 initialParams={{ locName: locName }}
