@@ -164,53 +164,85 @@ const VisibilityInfo = ({ visibility, gust, uv }) => {
     );
 };
 
-const AirQualityInfo = ({ co, no, o }) => {
+const AirQualityInfo = ({ co, no, o, us, gb }) => {
     return (
         <View
+            className="rounded-xl mt-[14px]"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
-            className="flex items-center justify-between flex-row p-6 rounded-lg mt-[14px]"
         >
-            <View>
-                <Text
-                    style={{ fontFamily: "plexRegular" }}
-                    className="text-[15px] text-slate-300 text-center"
-                >
-                    Carbon Monoxide
-                </Text>
-                <Text
-                    style={{ fontFamily: "plexMedium" }}
-                    className="text-[24px] text-white text-center"
-                >
-                    {co}
-                </Text>
+            <View className="flex items-center justify-between flex-row flex-wrap px-6 py-4">
+                <View>
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Carb Mo Oxide
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        {co}
+                    </Text>
+                </View>
+                <View>
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Nitro D Oxide
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        {no}
+                    </Text>
+                </View>
+                <View>
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Ozone
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        {o}
+                    </Text>
+                </View>
             </View>
-            <View>
-                <Text
-                    style={{ fontFamily: "plexRegular" }}
-                    className="text-[15px] text-slate-300 text-center"
-                >
-                    Nitrogen Dioxide
-                </Text>
-                <Text
-                    style={{ fontFamily: "plexMedium" }}
-                    className="text-[24px] text-white text-center"
-                >
-                    {no}
-                </Text>
-            </View>
-            <View>
-                <Text
-                    style={{ fontFamily: "plexRegular" }}
-                    className="text-[15px] text-slate-300 text-center"
-                >
-                    Ozone
-                </Text>
-                <Text
-                    style={{ fontFamily: "plexMedium" }}
-                    className="text-[24px] text-white text-center"
-                >
-                    {o}
-                </Text>
+            <View className="flex items-center justify-center flex-row flex-wrap px-6 py-4">
+                <View>
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Air Quality Index
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        {us}(us)
+                    </Text>
+                </View>
+                <View className="ml-10">
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Air Quality Index
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        {gb}(us)
+                    </Text>
+                </View>
             </View>
         </View>
     );
@@ -303,10 +335,19 @@ const WindDetailsScreen = ({ route }) => {
                             >
                                 Air Quality
                             </Text>
+
                             <AirQualityInfo
                                 co={weatherDetail.current.air_quality.co}
                                 no={weatherDetail.current.air_quality.no2}
                                 o={weatherDetail.current.air_quality.o3}
+                                us={
+                                    weatherDetail.current.air_quality
+                                        .us_epa_index
+                                }
+                                gb={
+                                    weatherDetail.current.air_quality
+                                        .gb_defra_index
+                                }
                             />
                         </View>
                     </View>
