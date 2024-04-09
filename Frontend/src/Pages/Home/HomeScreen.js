@@ -2,6 +2,7 @@ import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 import WeatherCard from "../../Components/WeatherCard";
 import Header from "../../Components/Header";
 import useGetWeatherData from "../../Hooks/useGetWeatherData";
@@ -13,19 +14,19 @@ const HomeScreen = ({ navigation }) => {
     const [city, setCity] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
 
-    const getWeatherData = async () => {
-        try {
-            const response = await fetch(
-                `${process.env.EXPO_PUBLIC_WEATHER_API_CURRENT}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${city}`
-            );
-            if (response.ok) {
-                const data = await response.json();
-                setWeatherData(data);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    // const getWeatherData = async () => {
+    //     try {
+    //         const response = await fetch(
+    //             `${process.env.EXPO_PUBLIC_WEATHER_API_CURRENT}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${city}`
+    //         );
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             setWeatherData(data);
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     useEffect(() => {
         const getLocationPermission = async () => {
@@ -76,6 +77,10 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <ScrollView className="flex-1">
+            <StatusBar
+                backgroundColor="#FFFFFF"
+                style="dark"
+            />
             <LinearGradient
                 contentContainerStyle={{
                     alignItems: "center",
