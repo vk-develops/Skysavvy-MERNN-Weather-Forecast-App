@@ -43,6 +43,26 @@ const DisplaySampleCities = ({ navigation }) => {
 
 const SearchScreen = ({ navigation }) => {
     const [search, setSearch] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+    const [searchResults, setSearchResults] = useState(null);
+
+    const fetchSearchResults = async () => {
+        try {
+            const response = await fetch(
+                `${process.env.EXPO_PUBLIC_WEATHER_API_SEARCH}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${search}`
+            );
+
+            if (response.ok) {
+                const data = await response.json();
+
+                setSearchResults(data);
+            }
+        } catch (error) {
+            console.log(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return (
         <ScrollView className="flex-1">
