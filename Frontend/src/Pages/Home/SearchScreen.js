@@ -141,7 +141,6 @@ const SearchScreen = ({ navigation }) => {
                                 onChangeText={(text) => setSearch(text)}
                             />
                         </View>
-                        {isLoading && <ActivityIndicator />}
                         {searchResults && searchResults.length > 0 ? (
                             <View className="mb-10">
                                 <Text
@@ -155,10 +154,15 @@ const SearchScreen = ({ navigation }) => {
                                     navigation={navigation}
                                 />
                             </View>
-                        ) : searchResults && searchResults.length === 0 ? (
+                        ) : searchResults &&
+                          searchResults.length === 0 &&
+                          search !== "" ? (
                             <View>
-                                <Text className="text-white">
-                                    No results found
+                                <Text
+                                    style={{ fontFamily: "plexMedium" }}
+                                    className="text-white text-base pt-2 "
+                                >
+                                    No results found for "{search}"
                                 </Text>
                             </View>
                         ) : (
