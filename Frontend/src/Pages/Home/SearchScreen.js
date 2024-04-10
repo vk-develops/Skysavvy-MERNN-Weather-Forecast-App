@@ -94,9 +94,12 @@ const SearchScreen = ({ navigation }) => {
                                 color="white"
                             />
                             <TextInput
-                                className="text-base text-neutral-300 pl-2"
+                                className="text-[15px] w-full text-neutral-300 pl-2"
                                 placeholderTextColor={"#ccc"}
                                 placeholder="Search for location"
+                                style={{ fontFamily: "plexRegular" }}
+                                value={search}
+                                onChangeText={(text) => setSearch(text)}
                             />
                         </View>
                         <View>
