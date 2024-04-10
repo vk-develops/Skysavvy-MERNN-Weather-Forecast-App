@@ -1,11 +1,12 @@
 import {
+    ActivityIndicator,
     ScrollView,
     Text,
     TextInput,
     TouchableOpacity,
     View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { sampleCities } from "../../Data/sampleCities";
@@ -49,12 +50,14 @@ const SearchScreen = ({ navigation }) => {
     const fetchSearchResults = async () => {
         try {
             const response = await fetch(
-                `${process.env.EXPO_PUBLIC_WEATHER_API_SEARCH}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${search}`
+                `${process.env.EXPO_PUBLIC_WEATHER_API_SEARCH}?key=${
+                    process.env.EXPO_PUBLIC_WEATHER_API_KEY
+                }&q=${"lon"}`
             );
 
             if (response.ok) {
                 const data = await response.json();
-
+                console.log(data);
                 setSearchResults(data);
             }
         } catch (error) {
@@ -63,6 +66,12 @@ const SearchScreen = ({ navigation }) => {
             setIsLoading(false);
         }
     };
+
+    useEffect(() => {
+        if (search != "") {
+            fetchSearchResults();
+        }
+    }, [search]);
 
     return (
         <ScrollView className="flex-1">
@@ -102,6 +111,7 @@ const SearchScreen = ({ navigation }) => {
                                 onChangeText={(text) => setSearch(text)}
                             />
                         </View>
+                        {isLoading && <ActivityIndicator />}
                         <View>
                             <Text
                                 style={{ fontFamily: "plexSemiBold" }}
