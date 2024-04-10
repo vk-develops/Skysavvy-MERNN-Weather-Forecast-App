@@ -42,6 +42,37 @@ const DisplaySampleCities = ({ navigation }) => {
     );
 };
 
+const DisplaySearchedCities = ({ navigation, data }) => {
+    return (
+        <View>
+            {data.map((city, index) => (
+                <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate("WeatherDetailScreen", {
+                            locName: city.name,
+                        });
+                    }}
+                    key={index}
+                    className="flex items-center justify-start flex-row border-b-[1px] border-neutral-200 py-6"
+                >
+                    <Text
+                        className="text-neutral-200 text-base"
+                        style={{ fontFamily: "plexMedium" }}
+                    >
+                        {city.name},{" "}
+                    </Text>
+                    <Text
+                        className="text-neutral-200 text-base"
+                        style={{ fontFamily: "plexMedium" }}
+                    >
+                        {city.country}
+                    </Text>
+                </TouchableOpacity>
+            ))}
+        </View>
+    );
+};
+
 const SearchScreen = ({ navigation }) => {
     const [search, setSearch] = useState("");
     const [isLoading, setIsLoading] = useState(true);
@@ -50,14 +81,11 @@ const SearchScreen = ({ navigation }) => {
     const fetchSearchResults = async () => {
         try {
             const response = await fetch(
-                `${process.env.EXPO_PUBLIC_WEATHER_API_SEARCH}?key=${
-                    process.env.EXPO_PUBLIC_WEATHER_API_KEY
-                }&q=${"lon"}`
+                `${process.env.EXPO_PUBLIC_WEATHER_API_SEARCH}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${search}`
             );
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data);
                 setSearchResults(data);
             }
         } catch (error) {
@@ -70,6 +98,8 @@ const SearchScreen = ({ navigation }) => {
     useEffect(() => {
         if (search != "") {
             fetchSearchResults();
+        } else {
+            setSearchResults(null);
         }
     }, [search]);
 
@@ -112,15 +142,21 @@ const SearchScreen = ({ navigation }) => {
                             />
                         </View>
                         {isLoading && <ActivityIndicator />}
-                        <View>
-                            <Text
-                                style={{ fontFamily: "plexSemiBold" }}
-                                className="text-white text-[22px] pt-2 "
-                            >
-                                Popular Searches
-                            </Text>
-                            <DisplaySampleCities navigation={navigation} />
-                        </View>
+                        {searchResults && searchResults.length > 0 ? (
+                            <View>
+                                <DisplaySearchedCities data={searchResults} />
+                            </View>
+                        ) : (
+                            <View>
+                                <Text
+                                    style={{ fontFamily: "plexSemiBold" }}
+                                    className="text-white text-[22px] pt-2 "
+                                >
+                                    Popular Searches
+                                </Text>
+                                <DisplaySampleCities navigation={navigation} />
+                            </View>
+                        )}
                     </View>
                 </View>
             </LinearGradient>
