@@ -143,11 +143,26 @@ const SearchScreen = ({ navigation }) => {
                         </View>
                         {isLoading && <ActivityIndicator />}
                         {searchResults && searchResults.length > 0 ? (
+                            <View className="mb-10">
+                                <Text
+                                    style={{ fontFamily: "plexSemiBold" }}
+                                    className="text-white text-[22px] pt-2 "
+                                >
+                                    Your Search Results
+                                </Text>
+                                <DisplaySearchedCities
+                                    data={searchResults}
+                                    navigation={navigation}
+                                />
+                            </View>
+                        ) : searchResults && searchResults.length === 0 ? (
                             <View>
-                                <DisplaySearchedCities data={searchResults} />
+                                <Text className="text-white">
+                                    No results found
+                                </Text>
                             </View>
                         ) : (
-                            <View>
+                            <View className="mb-10">
                                 <Text
                                     style={{ fontFamily: "plexSemiBold" }}
                                     className="text-white text-[22px] pt-2 "
