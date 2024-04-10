@@ -1,7 +1,14 @@
-import { ActivityIndicator, ScrollView, Text, View } from "react-native";
+import {
+    ActivityIndicator,
+    ScrollView,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { LinearGradient } from "expo-linear-gradient";
+import { Feather } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import WeatherCard from "../../Components/WeatherCard";
 import useGetWeatherData from "../../Hooks/useGetWeatherData";
@@ -75,6 +82,27 @@ const HomeScreen = ({ navigation }) => {
                 colors={["#23227B", "#000236"]}
             >
                 <View className="px-5 mt-8">
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("SearchScreen")}
+                        activeOpacity={0.6}
+                        className="p-[14px] rounded-full mb-4"
+                        style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
+                    >
+                        <View className="flex items-center justify-start flex-row gap-2 pl-1">
+                            <Feather
+                                name="search"
+                                size={24}
+                                color="white"
+                            />
+                            <Text
+                                style={{ fontFamily: "plexMedium" }}
+                                className="text-[#ccc] text-base pl-1"
+                            >
+                                Search of locations
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+
                     {isLoading && <ActivityIndicator />}
                     {weatherData && (
                         <View>

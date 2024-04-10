@@ -291,8 +291,8 @@ const WindDetailsScreen = ({ route }) => {
                     <View className="m-5">
                         <View>
                             <Text
-                                style={{ fontFamily: "plexMedium" }}
-                                className="text-white text-[22px]"
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[20px]"
                             >
                                 Wind Details
                             </Text>
@@ -304,8 +304,8 @@ const WindDetailsScreen = ({ route }) => {
                         </View>
                         <View className="mt-6">
                             <Text
-                                style={{ fontFamily: "plexMedium" }}
-                                className="text-white text-[22px]"
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[20px]"
                             >
                                 Atmospheric Measurements
                             </Text>
@@ -317,8 +317,8 @@ const WindDetailsScreen = ({ route }) => {
                         </View>
                         <View className="mt-6">
                             <Text
-                                style={{ fontFamily: "plexMedium" }}
-                                className="text-white text-[22px]"
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[20px]"
                             >
                                 Visibility Measurements
                             </Text>
@@ -330,8 +330,8 @@ const WindDetailsScreen = ({ route }) => {
                         </View>
                         <View className="mt-6">
                             <Text
-                                style={{ fontFamily: "plexMedium" }}
-                                className="text-white text-[22px]"
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[20px]"
                             >
                                 Air Quality
                             </Text>
