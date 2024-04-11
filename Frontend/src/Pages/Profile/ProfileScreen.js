@@ -30,14 +30,34 @@ const ProfileElement = () => {
                 }}
                 className={`h-0 w-0 bg-transparent`}
             ></View>
-            <View
-                style={{ width: 140, height: 140, backgroundColor: "#facc15" }}
-                className="absolute mt-[185px] flex items-center justify-center rounded-full shadow-lg drop-shadow-lg"
-            >
-                <Image
-                    className="w-36 h-36"
-                    source={img}
-                />
+            <View className="-mt-[236px]">
+                <View
+                    style={{
+                        width: 140,
+                        height: 140,
+                        backgroundColor: "#facc15",
+                    }}
+                    className="flex items-center justify-center rounded-full shadow-lg drop-shadow-lg"
+                >
+                    <Image
+                        className="w-36 h-36"
+                        source={img}
+                    />
+                </View>
+                <View className="mt-4">
+                    <Text
+                        className="text-white text-center text-[24px]"
+                        style={{ fontFamily: "plexSemiBold" }}
+                    >
+                        Vimal
+                    </Text>
+                    <Text
+                        className=" text-neutral-400 text-center text-base"
+                        style={{ fontFamily: "plexMedium" }}
+                    >
+                        Vimal
+                    </Text>
+                </View>
             </View>
         </View>
     );
