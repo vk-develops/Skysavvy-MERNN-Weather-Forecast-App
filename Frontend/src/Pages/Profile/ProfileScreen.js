@@ -7,12 +7,13 @@ import {
     View,
 } from "react-native";
 import React from "react";
+import { useSelector } from "react-redux";
 import { LinearGradient } from "expo-linear-gradient";
 import useLogout from "../../Hooks/useLogout";
 
 const width = Dimensions.get("window").width;
 
-const ProfileElement = () => {
+const ProfileElement = ({ name, email }) => {
     const img = {
         uri: "https://www.translitescaffolding.com/wp-content/uploads/2013/06/user-avatar.png",
     };
@@ -30,7 +31,7 @@ const ProfileElement = () => {
                 }}
                 className={`h-0 w-0 bg-transparent`}
             ></View>
-            <View className="-mt-[236px]">
+            <View className="-mt-[236px] flex items-center justify-center">
                 <View
                     style={{
                         width: 140,
@@ -44,18 +45,18 @@ const ProfileElement = () => {
                         source={img}
                     />
                 </View>
-                <View className="mt-4">
+                <View className="mt-5">
                     <Text
                         className="text-white text-center text-[24px]"
                         style={{ fontFamily: "plexSemiBold" }}
                     >
-                        Vimal
+                        {name}
                     </Text>
                     <Text
-                        className=" text-neutral-400 text-center text-base"
+                        className=" text-neutral-400 text-center text-base pt-2"
                         style={{ fontFamily: "plexMedium" }}
                     >
-                        Vimal
+                        {email}
                     </Text>
                 </View>
             </View>
@@ -64,6 +65,8 @@ const ProfileElement = () => {
 };
 
 const ProfileScreen = () => {
+    const { user } = useSelector((state) => state.auth);
+
     const { logoutHandler } = useLogout();
 
     const handleLogout = async () => {
@@ -80,8 +83,11 @@ const ProfileScreen = () => {
                 className="min-h-screen"
                 colors={["#23227B", "#000236"]}
             >
-                <ProfileElement />
-                <View className="mt-12">
+                <ProfileElement
+                    name={user.name}
+                    email={user.email}
+                />
+                <View className="mt-32">
                     <TouchableOpacity
                         onPress={handleLogout}
                         activeOpacity={0.7}
