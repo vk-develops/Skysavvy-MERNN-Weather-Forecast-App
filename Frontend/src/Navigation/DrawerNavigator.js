@@ -15,7 +15,7 @@ const DrawerNavigator = () => {
                 headerShown: false,
                 drawerStyle: {
                     width: Dimensions.get("window").width / 1.3,
-                    backgroundColor: "rgba(255, 255, 255, 0.9)",
+                    backgroundColor: "#fff",
                 },
                 drawerLabelStyle: {
                     fontFamily: "plexMedium",
