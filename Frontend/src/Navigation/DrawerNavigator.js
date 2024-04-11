@@ -1,5 +1,7 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import React from "react";
+import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import TabNavigator from "./TabNavigator";
 import ProfileStack from "../Pages/Profile/ProfileStack";
 import { Dimensions } from "react-native";
@@ -19,16 +21,39 @@ const DrawerNavigator = () => {
                 },
                 drawerLabelStyle: {
                     fontFamily: "plexMedium",
-                    fontSize: 15,
-                    paddingVertical: 0,
+                    fontSize: 16,
+                    marginLeft: -8,
                 },
+                drawerActiveTintColor: "#23227B",
+                drawerInactiveTintColor: "#aaa",
             }}
         >
             <Drawer.Screen
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <MaterialIcons
+                            name="home-filled"
+                            size={24}
+                            color={color}
+                        />
+                    ),
+                    drawerLabel: "Home",
+                }}
                 name="HomeDrawer"
                 component={TabNavigator}
             />
             <Drawer.Screen
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <FontAwesome
+                            style={{ paddingLeft: 4 }}
+                            name="user"
+                            size={24}
+                            color={color}
+                        />
+                    ),
+                    drawerLabel: "Profile",
+                }}
                 name="ProfileDrawer"
                 component={ProfileStack}
             />
