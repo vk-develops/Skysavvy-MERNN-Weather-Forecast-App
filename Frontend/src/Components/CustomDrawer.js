@@ -5,8 +5,9 @@ import {
     DrawerContentScrollView,
 } from "@react-navigation/drawer";
 import { LinearGradient } from "expo-linear-gradient";
+import { useSelector } from "react-redux";
 
-const ProfileComponent = () => {
+const ProfileComponent = ({ name, email, navigation }) => {
     const img = {
         uri: "https://www.translitescaffolding.com/wp-content/uploads/2013/06/user-avatar.png",
     };
@@ -20,7 +21,11 @@ const ProfileComponent = () => {
             className="h-56 relative"
             colors={["#23227B", "#000236"]}
         >
-            <TouchableOpacity className="flex items-center justify-start flex-row gap-2 absolute bottom-8 left-2">
+            <TouchableOpacity
+                onPress={() => navigation.navigate("ProfileTab")}
+                activeOpacity={0.8}
+                className="flex items-center justify-start flex-row gap-2 absolute bottom-8 left-2"
+            >
                 <View>
                     <Image
                         className="h-[70px] w-[70px]"
@@ -32,13 +37,13 @@ const ProfileComponent = () => {
                         style={{ fontFamily: "plexMedium" }}
                         className="text-white text-lg"
                     >
-                        Mightier
+                        {name}
                     </Text>
                     <Text
                         style={{ fontFamily: "plexRegular" }}
                         className="text-xs text-neutral-400"
                     >
-                        21cs124@kcgcollege.com
+                        {email}
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -47,9 +52,17 @@ const ProfileComponent = () => {
 };
 
 const CustomDrawer = (props) => {
+    const { user } = useSelector((state) => state.auth);
+
+    const { navigation } = props;
+
     return (
         <View className="flex-1">
-            <ProfileComponent />
+            <ProfileComponent
+                name={user.name}
+                email={user.email}
+                navigation={navigation}
+            />
             <DrawerContentScrollView
                 style={{ marginTop: 20 }}
                 {...props}
