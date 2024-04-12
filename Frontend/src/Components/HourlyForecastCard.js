@@ -1,12 +1,17 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 import Img from "../../assets/Images/WeatherImages/WeatherClearSky-Day.png";
+import ReturnImgString from "./ReturnImgString";
+import { weatherImg } from "../Data/weatherImg";
+import ReturnHourlyImgString from "./ReturnHourlyImgString";
 
-const HourlyForecastCard = ({ forecast }) => {
+const HourlyForecastCard = ({ forecast, weatherData }) => {
     const time = forecast.time.split(" ")[1];
 
     const date = new Date();
     const hour = date.getHours();
+
+    const { image } = ReturnHourlyImgString(forecast);
 
     return (
         <View className="flex items-center justify-center flex-row gap-2 mr-3">
@@ -29,7 +34,7 @@ const HourlyForecastCard = ({ forecast }) => {
                 <View className="flex items-center justify-center mt-3">
                     <Image
                         className="w-[50px] h-[50px]"
-                        source={Img}
+                        source={weatherImg[image]}
                     />
                     <Text
                         style={{ fontFamily: "plexMedium" }}

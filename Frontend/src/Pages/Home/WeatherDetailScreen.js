@@ -100,7 +100,10 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                                 >
                                     Hourly Forecasts
                                 </Text>
-                                <HourlyForecast locName={locName} />
+                                <HourlyForecast
+                                    weatherData={weatherData}
+                                    locName={locName}
+                                />
                             </View>
                         </View>
                     )}
