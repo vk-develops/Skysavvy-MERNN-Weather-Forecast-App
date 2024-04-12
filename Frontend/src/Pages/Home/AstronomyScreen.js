@@ -47,6 +47,52 @@ const SunDetails = ({ sunRise, sunSet }) => {
     );
 };
 
+const MoonDetails = () => {
+    return (
+        <View
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+            className="p-6 rounded-lg mt-[14px]"
+        >
+            <View className="flex items-center justify-between flex-row">
+                <View>
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Moon Rise
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        moon set
+                    </Text>
+                </View>
+                <View className="px-2">
+                    <Image
+                        className="w-12 h-12"
+                        source={weatherImg["ClearNight"]}
+                    />
+                </View>
+                <View>
+                    <Text
+                        style={{ fontFamily: "plexRegular" }}
+                        className="text-[15px] text-slate-300 text-center"
+                    >
+                        Moon Set
+                    </Text>
+                    <Text
+                        style={{ fontFamily: "plexMedium" }}
+                        className="text-[24px] text-white text-center"
+                    >
+                        moon rise
+                    </Text>
+                </View>
+            </View>
+        </View>
+    );
+};
+
 const AstronomyScreen = ({ route }) => {
     const { weatherData, locName } = route.params;
 
@@ -101,6 +147,13 @@ const AstronomyScreen = ({ route }) => {
                                 sunRise={astroData.astronomy.astro.sunrise}
                                 sunSet={astroData.astronomy.astro.sunset}
                             />
+                            <Text
+                                style={{ fontFamily: "plexSemiBold" }}
+                                className="text-white text-[22px] pt-8"
+                            >
+                                Moon Details
+                            </Text>
+                            <MoonDetails />
                         </View>
                     ) : (
                         <ActivityIndicator />
