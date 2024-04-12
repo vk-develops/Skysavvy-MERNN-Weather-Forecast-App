@@ -1,13 +1,49 @@
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, ActivityIndicator, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import { weatherImg } from "../../Data/weatherImg";
 
-const SunDetails = () => {
+const SunDetails = ({ sunRise, sunSet }) => {
     return (
         <View
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-            className="px-5 pb-5 rounded-lg relative mt-5"
-        ></View>
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+            className="flex items-center justify-between flex-row p-6 rounded-lg mt-[14px]"
+        >
+            <View>
+                <Text
+                    style={{ fontFamily: "plexRegular" }}
+                    className="text-[15px] text-slate-300 text-center"
+                >
+                    Sun Rise
+                </Text>
+                <Text
+                    style={{ fontFamily: "plexMedium" }}
+                    className="text-[24px] text-white text-center"
+                >
+                    sun set
+                </Text>
+            </View>
+            <View>
+                <Image
+                    className="w-20 h-20"
+                    source={weatherImg["SunnyDay"]}
+                />
+            </View>
+            <View>
+                <Text
+                    style={{ fontFamily: "plexRegular" }}
+                    className="text-[15px] text-slate-300 text-center"
+                >
+                    Sun Set
+                </Text>
+                <Text
+                    style={{ fontFamily: "plexMedium" }}
+                    className="text-[24px] text-white text-center"
+                >
+                    sun rise
+                </Text>
+            </View>
+        </View>
     );
 };
 
@@ -61,6 +97,7 @@ const AstronomyScreen = ({ route }) => {
                             >
                                 Sun Details
                             </Text>
+                            <SunDetails />
                         </View>
                     ) : (
                         <ActivityIndicator />
