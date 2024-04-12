@@ -40,7 +40,6 @@ const HourlyForecast = ({ locName, weatherData }) => {
                 hourlyWeatherForecast.map((forecast, index) => (
                     <HourlyForecastCard
                         key={index}
-                        weatherData={hourlyWeatherForecast[1]}
                         forecast={forecast}
                     />
                 ))

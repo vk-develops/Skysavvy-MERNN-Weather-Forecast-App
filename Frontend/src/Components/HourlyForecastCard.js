@@ -1,11 +1,9 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-import Img from "../../assets/Images/WeatherImages/WeatherClearSky-Day.png";
-import ReturnImgString from "./ReturnImgString";
 import { weatherImg } from "../Data/weatherImg";
 import ReturnHourlyImgString from "./ReturnHourlyImgString";
 
-const HourlyForecastCard = ({ forecast, weatherData }) => {
+const HourlyForecastCard = ({ forecast }) => {
     const time = forecast.time.split(" ")[1];
 
     const date = new Date();
