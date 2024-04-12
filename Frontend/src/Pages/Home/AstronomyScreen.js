@@ -47,7 +47,7 @@ const SunDetails = ({ sunRise, sunSet }) => {
     );
 };
 
-const MoonDetails = () => {
+const MoonDetails = ({ moonRise, moonSet }) => {
     return (
         <View
             style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
@@ -65,7 +65,7 @@ const MoonDetails = () => {
                         style={{ fontFamily: "plexMedium" }}
                         className="text-[24px] text-white text-center"
                     >
-                        moon set
+                        {moonRise}
                     </Text>
                 </View>
                 <View className="px-2">
@@ -85,7 +85,7 @@ const MoonDetails = () => {
                         style={{ fontFamily: "plexMedium" }}
                         className="text-[24px] text-white text-center"
                     >
-                        moon rise
+                        {moonSet}
                     </Text>
                 </View>
             </View>
@@ -153,7 +153,10 @@ const AstronomyScreen = ({ route }) => {
                             >
                                 Moon Details
                             </Text>
-                            <MoonDetails />
+                            <MoonDetails
+                                moonRise={astroData.astronomy.astro.moonrise}
+                                moonSet={astroData.astronomy.astro.moonset}
+                            />
                         </View>
                     ) : (
                         <ActivityIndicator />
