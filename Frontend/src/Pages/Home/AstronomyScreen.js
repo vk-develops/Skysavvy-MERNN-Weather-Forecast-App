@@ -47,7 +47,7 @@ const SunDetails = ({ sunRise, sunSet }) => {
     );
 };
 
-const MoonDetails = ({ moonRise, moonSet }) => {
+const MoonDetails = ({ moonRise, moonSet, moonPhase }) => {
     return (
         <View
             style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
@@ -89,6 +89,12 @@ const MoonDetails = ({ moonRise, moonSet }) => {
                     </Text>
                 </View>
             </View>
+            <Text
+                style={{ fontFamily: "plexMedium" }}
+                className="pt-4 text-center text-neutral-200 text-lg"
+            >
+                Moon Phase: {moonPhase}
+            </Text>
         </View>
     );
 };
@@ -109,8 +115,6 @@ const AstronomyScreen = ({ route }) => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data);
-
                 setAstroData(data);
             }
         } catch (error) {
@@ -156,6 +160,7 @@ const AstronomyScreen = ({ route }) => {
                             <MoonDetails
                                 moonRise={astroData.astronomy.astro.moonrise}
                                 moonSet={astroData.astronomy.astro.moonset}
+                                moonPhase={astroData.astronomy.astro.moon_phase}
                             />
                         </View>
                     ) : (
