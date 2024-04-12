@@ -20,12 +20,12 @@ const SunDetails = ({ sunRise, sunSet }) => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-[24px] text-white text-center"
                 >
-                    sun set
+                    {sunRise}
                 </Text>
             </View>
-            <View>
+            <View className="px-2">
                 <Image
-                    className="w-20 h-20"
+                    className="w-12 h-12"
                     source={weatherImg["SunnyDay"]}
                 />
             </View>
@@ -40,7 +40,7 @@ const SunDetails = ({ sunRise, sunSet }) => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-[24px] text-white text-center"
                 >
-                    sun rise
+                    {sunSet}
                 </Text>
             </View>
         </View>
@@ -97,7 +97,10 @@ const AstronomyScreen = ({ route }) => {
                             >
                                 Sun Details
                             </Text>
-                            <SunDetails />
+                            <SunDetails
+                                sunRise={astroData.astronomy.astro.sunrise}
+                                sunSet={astroData.astronomy.astro.sunset}
+                            />
                         </View>
                     ) : (
                         <ActivityIndicator />
