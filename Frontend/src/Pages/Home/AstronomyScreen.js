@@ -100,9 +100,13 @@ const MoonDetails = ({ moonRise, moonSet, moonPhase }) => {
 };
 
 const AstronomyScreen = ({ route }) => {
-    const { weatherData, locName } = route.params;
+    const { locName } = route.params;
 
-    const date = weatherData.location.localtime.split(" ")[0];
+    const dd = new Date();
+    const year = dd.getFullYear();
+    const month = dd.getMonth();
+    const date = dd.getDate();
+    const fullDate = `${year}-${month}-${date}`;
 
     const [astroData, setAstroData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -110,7 +114,7 @@ const AstronomyScreen = ({ route }) => {
     const fetchAstronomyDetails = async () => {
         try {
             const response = await fetch(
-                `${process.env.EXPO_PUBLIC_WEATHER_API_ASTRONOMY}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${locName}&dt=${date}`
+                `${process.env.EXPO_PUBLIC_WEATHER_API_ASTRONOMY}?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${locName}&dt=${fullDate}`
             );
 
             if (response.ok) {
