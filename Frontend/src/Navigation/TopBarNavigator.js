@@ -2,6 +2,7 @@ import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import WeatherDetailScreen from "../Pages/Home/WeatherDetailScreen";
 import WindDetailsScreen from "../Pages/Home/WindDetailsScreen";
+import AstronomyScreen from "../Pages/Home/AstronomyScreen";
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -42,6 +43,14 @@ const TopBarNavigator = ({ route }) => {
                 name="WindDetailsScreen"
                 component={WindDetailsScreen}
                 initialParams={{ locName: locName }}
+            />
+            <TopTab.Screen
+                options={{
+                    tabBarLabel: "Astronomy",
+                }}
+                name="AstronomyScreen"
+                component={AstronomyScreen}
+                initialParams={{ weatherData: weatherData, locName: locName }}
             />
         </TopTab.Navigator>
     );
