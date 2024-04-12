@@ -2,6 +2,8 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Img from "../../assets/Images/WeatherImages/WeatherFewClouds-Night.png";
+import ReturnImgString from "./ReturnImgString";
+import { weatherImg } from "../Data/weatherImg";
 
 const MiniWeatherCard = ({ weatherData, navigation }) => {
     const handleNavigation = () => {
@@ -13,6 +15,8 @@ const MiniWeatherCard = ({ weatherData, navigation }) => {
             },
         });
     };
+
+    const { image } = ReturnImgString(weatherData);
 
     return (
         <TouchableOpacity
@@ -38,7 +42,7 @@ const MiniWeatherCard = ({ weatherData, navigation }) => {
                 <View className="flex items-center justify-center gap-4 flex-row">
                     <Image
                         className="w-12 h-[50px]"
-                        source={Img}
+                        source={weatherImg[image]}
                     />
                     <View>
                         <Text

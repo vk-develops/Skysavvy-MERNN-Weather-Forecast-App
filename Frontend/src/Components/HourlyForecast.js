@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import HourlyForecastCard from "./HourlyForecastCard";
 
-const HourlyForecast = ({ locName }) => {
+const HourlyForecast = ({ locName, weatherData }) => {
     const [hourlyWeatherForecast, setHourlyWeatherForecast] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 

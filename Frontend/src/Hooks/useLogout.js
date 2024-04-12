@@ -10,10 +10,9 @@ const useLogout = () => {
     const logoutHandler = async () => {
         try {
             const response = await logout().unwrap();
-            if (response.ok) {
-                dispatch(removeCredentials());
-                useSuccessToast({ msg: response.message });
-            }
+
+            useSuccessToast({ msg: response.message });
+            dispatch(removeCredentials());
         } catch (err) {
             console.log(err.data.message);
             useErrorToast({ msg: err.data.message });

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import WeatherInfo from "../../Components/WeatherInfo";
 import { weatherImg } from "../../Data/weatherImg";
 import HourlyForecast from "../../Components/HourlyForecast";
+import ReturnImgString from "../../Components/ReturnImgString";
 
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { locName } = route.params;
@@ -40,10 +41,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
     const location = weatherData.location;
     const current = weatherData.current;
 
-    const isDay = weatherData.current.is_day === 1;
-    const timeOfDay = isDay ? "Day" : "Night";
-    const image =
-        weatherData.current.condition.text.replace(/\s/g, "") + timeOfDay;
+    const { image } = ReturnImgString(weatherData);
 
     return (
         <ScrollView className="flex-1">
@@ -102,7 +100,10 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                                 >
                                     Hourly Forecasts
                                 </Text>
-                                <HourlyForecast locName={locName} />
+                                <HourlyForecast
+                                    weatherData={weatherData}
+                                    locName={locName}
+                                />
                             </View>
                         </View>
                     )}

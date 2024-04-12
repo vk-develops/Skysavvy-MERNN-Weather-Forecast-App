@@ -29,7 +29,7 @@ const MainNavigator = () => {
 
     useEffect(() => {
         checkIsLoggedIn();
-    }, []);
+    }, [isAuthenticated]);
 
     return isAuthenticated ? <DrawerNavigator /> : <OnboardingStack />;
 };
