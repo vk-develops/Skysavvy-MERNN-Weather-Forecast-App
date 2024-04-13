@@ -12,6 +12,10 @@
             "dest": "/Public/$1"
         },
         {
+            "src": "/about",
+            "dest": "/Views/about.html"
+        },
+        {
             "src": "/(.*)",
             "dest": "/index.js"
         }
