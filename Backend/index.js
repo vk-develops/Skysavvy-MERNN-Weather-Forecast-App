@@ -49,3 +49,6 @@ app.use("/api/v1/users/account", accountRoute);
 app.listen(PORT, () => {
     console.log(`Server started and running on http://localhost:${PORT}`);
 });
+
+//Exporting the app
+export default app;
