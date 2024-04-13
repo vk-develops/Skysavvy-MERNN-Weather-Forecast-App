@@ -18,7 +18,15 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
-app.use(express.static("Public"));
+// Serving static files from the 'Public' directory
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "Public")));
+
+app.use("/Images", express.static(path.join(__dirname, "Public", "Images")));
+app.use(
+    "/Images/WeatherImg",
+    express.static(path.join(__dirname, "Public", "WeatherImages"))
+);
 
 //HTTP GET Method Test
 app.get("/api/v1/", (req, res) => {
