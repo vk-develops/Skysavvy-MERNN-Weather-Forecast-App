@@ -12,7 +12,7 @@
             "destination": "/index.js"
         },
         {
-            "source": "/Images/(.*)",
+            "source": "/Public/(.*)",
             "destination": "/Public/$1"
         }
     ]
