@@ -9,11 +9,11 @@
     "rewrites": [
         {
             "source": "/api/v1/(.*)",
-            "destination": "/Api"
+            "destination": "/Api/index.js"
         },
         {
             "source": "/Public/(.*)",
-            "destination": "/Public/$1"
+            "destination": "/Public/"
         }
     ]
 }
