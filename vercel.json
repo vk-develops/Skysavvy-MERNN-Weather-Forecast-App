@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/Public/(.*)",
+            "destination": "/Backend/Public/"
+        }
+    ]
+}
