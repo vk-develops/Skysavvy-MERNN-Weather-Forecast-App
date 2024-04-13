@@ -18,6 +18,8 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+app.use(express.static("Public"));
+
 //HTTP GET Method Test
 app.get("/api/v1/", (req, res) => {
     res.status(200).json({ success: true, message: "HTTP Method Success!" });
