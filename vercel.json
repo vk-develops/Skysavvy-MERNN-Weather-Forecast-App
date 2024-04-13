@@ -10,14 +10,6 @@
         {
             "source": "/(.*)",
             "destination": "/Backend/index.js"
-        },
-        {
-            "source": "/api/v1/(.*)",
-            "destination": "/Backend/Api/"
-        },
-        {
-            "source": "/Public/(.*)",
-            "destination": "/Backend/Public/"
         }
     ]
 }
