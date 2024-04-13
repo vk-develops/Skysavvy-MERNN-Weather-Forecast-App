@@ -1,6 +1,10 @@
 {
     "rewrites": [
         {
+            "source": "/(.*)",
+            "destination": "/Backend/index.js"
+        },
+        {
             "source": "/Public/(.*)",
             "destination": "/Backend/Public/"
         }
