@@ -28,6 +28,10 @@ app.use(
     express.static(path.join(__dirname, "Public", "WeatherImages"))
 );
 
+app.get("/about", (req, res) => {
+    res.sendFile(path.join(__dirname, "Views", "about.html"));
+});
+
 //HTTP GET Method Test
 app.get("/api/v1/", (req, res) => {
     res.status(200).json({ success: true, message: "HTTP Method Success!" });
