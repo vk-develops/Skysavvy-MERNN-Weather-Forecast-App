@@ -10,7 +10,9 @@
         {
             "src": "/api/v1(.*)",
             "dest": "/index.js"
-        },
+        }
+    ],
+    "rewrites": [
         {
             "src": "/Public(.*)",
             "dest": "/Public/"
