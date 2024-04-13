@@ -9,15 +9,11 @@
     "routes": [
         {
             "src": "/Public/(.*)",
-            "dest": "/Public/$1"
-        },
-        {
-            "src": "/about",
-            "dest": "/Views/about.html"
+            "dest": "/Backend/Public/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "/index.js"
+            "dest": "/Backend/index.js"
         }
     ]
 }
