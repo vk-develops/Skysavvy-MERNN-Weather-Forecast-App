@@ -10,12 +10,10 @@
         {
             "src": "/(.*)",
             "dest": "/index.js"
-        }
-    ],
-    "rewrites": [
+        },
         {
-            "source": "/Public/(.*)",
-            "destination": "/Public/"
+            "src": "/Public/(.*)",
+            "dest": "/Public/"
         }
     ]
 }
