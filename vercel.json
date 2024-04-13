@@ -1,11 +1,10 @@
 {
     "builds": [
         {
-            "src": "/Backend/*.js",
+            "src": "/Backend/index.js",
             "use": "@vercel/node"
         }
     ],
-
     "rewrites": [
         {
             "source": "/api/v1/(.*)",
