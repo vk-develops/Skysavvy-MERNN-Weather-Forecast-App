@@ -8,12 +8,12 @@
     ],
     "rewrites": [
         {
-            "source": "/Public/(.*)",
-            "destination": "/Public/"
+            "source": "/api/v1/(.*)",
+            "destination": "/index.js"
         },
         {
-            "source": "/api/v1(.*)",
-            "destination": "/index.js"
+            "source": "/Public/(.*)",
+            "destination": "/Public/$1"
         }
     ]
 }
