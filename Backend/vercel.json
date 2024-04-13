@@ -12,8 +12,8 @@
             "destination": "/index.js"
         },
         {
-            "source": "/Public/(.*)",
-            "destination": "/Public/"
+            "source": "/Images/(.*)",
+            "destination": "/Public/$1"
         }
     ]
 }
