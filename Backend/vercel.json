@@ -12,6 +12,10 @@
             "dest": "/index.js"
         },
         {
+            "src": "/aboutimg",
+            "dest": "/Public/Images/Login-Bg.png"
+        },
+        {
             "src": "/Public/(.*)",
             "dest": "/Public/$1"
         },
