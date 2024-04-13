@@ -13,7 +13,7 @@
         },
         {
             "source": "/api/v1/(.*)",
-            "destination": "/Backend/index.js"
+            "destination": "/Backend/Api/"
         },
         {
             "source": "/Public/(.*)",
