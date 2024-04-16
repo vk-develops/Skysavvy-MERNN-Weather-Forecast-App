@@ -1,6 +1,5 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-import { weatherImg } from "../Data/weatherImg";
 import ReturnHourlyImgString from "./ReturnHourlyImgString";
 import { newWeatherImg } from "../Data/newWeatherImg";
 

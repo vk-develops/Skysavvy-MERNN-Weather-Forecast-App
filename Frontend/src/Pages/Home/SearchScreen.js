@@ -1,5 +1,4 @@
 import {
-    ActivityIndicator,
     ScrollView,
     Text,
     TextInput,

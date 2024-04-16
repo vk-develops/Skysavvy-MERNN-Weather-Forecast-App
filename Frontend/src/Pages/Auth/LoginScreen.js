@@ -7,7 +7,6 @@ import {
     TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLoginMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useDispatch } from "react-redux";

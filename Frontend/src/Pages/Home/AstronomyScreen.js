@@ -1,7 +1,6 @@
 import { View, Text, ScrollView, ActivityIndicator, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { weatherImg } from "../../Data/weatherImg";
 
 const SunDetails = ({ sunRise, sunSet }) => {
     return (

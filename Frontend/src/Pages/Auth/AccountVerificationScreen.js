@@ -8,7 +8,6 @@ import {
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { OtpInput } from "react-native-otp-entry";
-import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { styles } from "../../Styles/style";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 import { useVerifyAccountMutation } from "../../Redux/Services/userAccountApiSlice";
@@ -49,7 +48,9 @@ const AccountVerificationScreen = () => {
             >
                 <ImageBackground
                     imageStyle={{ opacity: 0.4 }}
-                    source={LoginBg}
+                    source={{
+                        uri: "https://vk-develops-static-assets.vercel.app/Public/Images/Login-Bg.png",
+                    }}
                     resizeMode="cover"
                     className="flex-1 -m-12 "
                 >

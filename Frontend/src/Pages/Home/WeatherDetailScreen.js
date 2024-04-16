@@ -2,7 +2,6 @@ import { View, Text, ScrollView, Image, ActivityIndicator } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useEffect, useState } from "react";
 import WeatherInfo from "../../Components/WeatherInfo";
-import { weatherImg } from "../../Data/weatherImg";
 import HourlyForecast from "../../Components/HourlyForecast";
 import ReturnImgString from "../../Components/ReturnImgString";
 import { newWeatherImg } from "../../Data/newWeatherImg";
