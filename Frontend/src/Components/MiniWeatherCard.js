@@ -2,7 +2,6 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import ReturnImgString from "./ReturnImgString";
-import { weatherImg } from "../Data/weatherImg";
 import { newWeatherImg } from "../Data/newWeatherImg";
 
 const MiniWeatherCard = ({ weatherData, navigation }) => {
