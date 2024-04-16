@@ -2,6 +2,7 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { weatherImg } from "../Data/weatherImg";
 import ReturnHourlyImgString from "./ReturnHourlyImgString";
+import { newWeatherImg } from "../Data/newWeatherImg";
 
 const HourlyForecastCard = ({ forecast }) => {
     const time = forecast.time.split(" ")[1];
@@ -10,6 +11,8 @@ const HourlyForecastCard = ({ forecast }) => {
     const hour = date.getHours();
 
     const { image } = ReturnHourlyImgString(forecast);
+
+    const uri = newWeatherImg[image]?.uri || `https:${forecast.condition.icon}`;
 
     return (
         <View className="flex items-center justify-center flex-row gap-2 mr-3">
@@ -32,7 +35,7 @@ const HourlyForecastCard = ({ forecast }) => {
                 <View className="flex items-center justify-center mt-3">
                     <Image
                         className="w-[50px] h-[50px]"
-                        source={weatherImg[image]}
+                        source={{ uri }}
                     />
                     <Text
                         style={{ fontFamily: "plexMedium" }}

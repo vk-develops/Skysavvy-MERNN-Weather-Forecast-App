@@ -5,6 +5,7 @@ import WeatherInfo from "../../Components/WeatherInfo";
 import { weatherImg } from "../../Data/weatherImg";
 import HourlyForecast from "../../Components/HourlyForecast";
 import ReturnImgString from "../../Components/ReturnImgString";
+import { newWeatherImg } from "../../Data/newWeatherImg";
 
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { locName } = route.params;
@@ -43,6 +44,10 @@ const WeatherDetailScreen = ({ route, navigation }) => {
 
     const { image } = ReturnImgString(weatherData);
 
+    const uri =
+        newWeatherImg[image]?.uri ||
+        `https:${weatherData.current.condition.icon}`;
+
     return (
         <ScrollView className="flex-1">
             <LinearGradient
@@ -75,7 +80,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                             <View className="flex items-center justify-center mt-10">
                                 <Image
                                     className="h-[260px] w-[280px]"
-                                    source={weatherImg[image]}
+                                    source={{ uri }}
                                 />
                             </View>
                             <View className="pt-4">
