@@ -34,7 +34,7 @@ app.get("/api/v1/", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.status(200).json({ success: true, message: "HTTP Method Success!" });
+    res.sendFile(__dirname + "/Views/about.html");
 });
 
 //API's
