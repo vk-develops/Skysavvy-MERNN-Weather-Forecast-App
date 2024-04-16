@@ -48,7 +48,9 @@ const RegisterScreen = ({ navigation }) => {
             >
                 <ImageBackground
                     imageStyle={{ opacity: 0.4 }}
-                    source={LoginBg}
+                    source={{
+                        uri: "https://vk-develops-static-assets.vercel.app/Public/Images/Login-Bg.png",
+                    }}
                     resizeMode="cover"
                     className="flex-1 -m-12 justify-center"
                 >

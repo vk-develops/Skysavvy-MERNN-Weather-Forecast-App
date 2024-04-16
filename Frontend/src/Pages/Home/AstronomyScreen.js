@@ -26,7 +26,9 @@ const SunDetails = ({ sunRise, sunSet }) => {
             <View className="px-2">
                 <Image
                     className="w-12 h-12"
-                    source={weatherImg["SunnyDay"]}
+                    source={{
+                        uri: "https://vk-develops-static-assets.vercel.app/Public/Images/WeatherImages/WeatherClearSky-Day.png",
+                    }}
                 />
             </View>
             <View>
@@ -71,7 +73,9 @@ const MoonDetails = ({ moonRise, moonSet, moonPhase }) => {
                 <View className="px-2">
                     <Image
                         className="w-12 h-12"
-                        source={weatherImg["ClearNight"]}
+                        source={{
+                            uri: "https://vk-develops-static-assets.vercel.app/Public/Images/WeatherImages/WeatherClearSky-Night.png",
+                        }}
                     />
                 </View>
                 <View>

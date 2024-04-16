@@ -58,11 +58,14 @@ const CustomDrawer = (props) => {
 
     return (
         <View className="flex-1">
-            <ProfileComponent
-                name={user.name}
-                email={user.email}
-                navigation={navigation}
-            />
+            {user ? (
+                <ProfileComponent
+                    name={user.name}
+                    email={user.email}
+                    navigation={navigation}
+                />
+            ) : null}
+
             <DrawerContentScrollView
                 style={{ marginTop: 20 }}
                 {...props}
