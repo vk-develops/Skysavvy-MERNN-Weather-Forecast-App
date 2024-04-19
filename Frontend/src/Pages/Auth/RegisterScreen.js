@@ -11,6 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useRegisterMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 import { styles } from "../../Styles/style";
+import AuthenticateLoader from "../../Components/AuthenticateLoader";
 
 const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState("");
@@ -32,6 +33,10 @@ const RegisterScreen = ({ navigation }) => {
             useErrorToast({ msg: err.data.message });
         }
     };
+
+    if (isLoading) {
+        return <AuthenticateLoader title={"Registering"} />;
+    }
 
     return (
         <ScrollView className="flex-1">
