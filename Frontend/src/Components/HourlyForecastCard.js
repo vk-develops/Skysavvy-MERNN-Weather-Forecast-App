@@ -3,11 +3,11 @@ import React from "react";
 import ReturnHourlyImgString from "./ReturnHourlyImgString";
 import { newWeatherImg } from "../Data/newWeatherImg";
 
-const HourlyForecastCard = ({ forecast }) => {
-    const time = forecast.time.split(" ")[1];
+const HourlyForecastCard = ({ forecast, time }) => {
+    const curtime = forecast.time.split(" ")[1];
 
-    const date = new Date();
-    const hour = date.getHours();
+    // const date = new Date();
+    // const hour = date.getHours();
 
     const { image } = ReturnHourlyImgString(forecast);
 
@@ -18,7 +18,8 @@ const HourlyForecastCard = ({ forecast }) => {
             <View
                 style={{
                     backgroundColor:
-                        Number(time.split(":")[0]) === Number(hour)
+                        Number(curtime.split(":")[0]) ===
+                        Number(time.split(":")[0])
                             ? "rgba(133, 77, 14, 1)"
                             : "rgba(255, 255, 255, 0.3)",
                 }}
@@ -28,8 +29,8 @@ const HourlyForecastCard = ({ forecast }) => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-white text-base text-center"
                 >
-                    {time}
-                    {time.split(":")[0] < 12 ? `am` : `pm`}
+                    {curtime}
+                    {curtime.split(":")[0] < 12 ? `am` : `pm`}
                 </Text>
                 <View className="flex items-center justify-center mt-3">
                     <Image
