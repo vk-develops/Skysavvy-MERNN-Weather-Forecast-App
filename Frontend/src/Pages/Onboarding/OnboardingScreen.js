@@ -25,7 +25,7 @@ const OnboardingScreen = ({ navigation }) => {
                     <Image
                         style={{
                             width: "100%",
-                            height: Dimensions.get("window").width,
+                            height: Dimensions.get("window").width - 70,
                         }}
                         source={{
                             uri: "https://vk-develops-static-assets.vercel.app/Public/Images/OnboardingImg.png",

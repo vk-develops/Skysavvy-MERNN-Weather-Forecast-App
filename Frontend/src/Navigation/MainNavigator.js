@@ -37,7 +37,7 @@ const MainNavigator = () => {
     }, [isAuthenticated]);
 
     if (isLoading) {
-        return <AuthenticateLoader title={"Authenticating..."} />;
+        return <AuthenticateLoader title={"Checking Credentials..."} />;
     }
 
     return isAuthenticated ? <DrawerNavigator /> : <OnboardingStack />;
