@@ -1,11 +1,4 @@
-import {
-    Dimensions,
-    Image,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-    View,
-} from "react-native";
+import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { useSelector } from "react-redux";
 import { LinearGradient } from "expo-linear-gradient";
@@ -74,7 +67,7 @@ const ProfileScreen = () => {
     };
 
     return (
-        <ScrollView className="flex-1">
+        <View className="flex-1">
             <LinearGradient
                 contentContainerStyle={{
                     alignItems: "center",
@@ -102,7 +95,7 @@ const ProfileScreen = () => {
                     </TouchableOpacity>
                 </View>
             </LinearGradient>
-        </ScrollView>
+        </View>
     );
 };
 

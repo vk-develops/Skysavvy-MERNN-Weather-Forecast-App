@@ -72,7 +72,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                                 </Text>
                                 <Text
                                     style={{ fontFamily: "plexMedium" }}
-                                    className="text-[15px] text-slate-300 text-center pt-2"
+                                    className="text-[15px] text-slate-300 text-center pt-4"
                                 >
                                     Today, 15 Dec
                                 </Text>
