@@ -5,6 +5,7 @@ import WeatherInfo from "../../Components/WeatherInfo";
 import HourlyForecast from "../../Components/HourlyForecast";
 import ReturnImgString from "../../Components/ReturnImgString";
 import { newWeatherImg } from "../../Data/newWeatherImg";
+import Loader from "../../Components/Loader";
 
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { locName } = route.params;
@@ -35,7 +36,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
     }, []);
 
     if (!weatherData) {
-        return null;
+        return <Loader />;
     }
 
     const location = weatherData.location;
