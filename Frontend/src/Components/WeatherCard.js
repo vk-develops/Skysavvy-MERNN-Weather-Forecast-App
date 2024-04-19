@@ -50,7 +50,9 @@ const WeatherCard = ({ onPress, weatherData }) => {
                         className="text-lg text-white"
                     >
                         {weatherData.location.name},{" "}
-                        {weatherData.location.region}
+                        {weatherData.location.region.length > 12
+                            ? `${weatherData.location.region.slice(0, 12)}...`
+                            : weatherData.location.region}
                     </Text>
                     <Text
                         style={{ fontFamily: "plexMedium" }}
