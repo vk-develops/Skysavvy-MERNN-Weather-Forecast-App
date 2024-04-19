@@ -67,7 +67,8 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                                     className="text-2xl text-white text-center"
                                     style={{ fontFamily: "plexSemiBold" }}
                                 >
-                                    {location.name}, {location.region}
+                                    {location.name}, {location.region},{" "}
+                                    {location.country}
                                 </Text>
                                 <Text
                                     style={{ fontFamily: "plexMedium" }}
