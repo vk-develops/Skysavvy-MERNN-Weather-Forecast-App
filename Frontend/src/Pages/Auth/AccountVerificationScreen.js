@@ -13,6 +13,7 @@ import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 import { useVerifyAccountMutation } from "../../Redux/Services/userAccountApiSlice";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../../Redux/Features/usersAuthSlice";
+import AuthenticateLoader from "../../Components/AuthenticateLoader";
 
 const AccountVerificationScreen = () => {
     const [otp, setOtp] = useState("");
@@ -35,6 +36,10 @@ const AccountVerificationScreen = () => {
             useErrorToast({ msg: err.data.message });
         }
     };
+
+    if (isLoading) {
+        return <AuthenticateLoader title={"Verifying OTP..."} />;
+    }
 
     return (
         <ScrollView className="flex-1">

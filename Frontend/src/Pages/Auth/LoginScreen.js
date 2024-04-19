@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "../../Redux/Features/usersAuthSlice";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 import { styles } from "../../Styles/style";
+import AuthenticateLoader from "../../Components/AuthenticateLoader";
 
 const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -34,6 +35,10 @@ const RegisterScreen = ({ navigation }) => {
             useErrorToast({ msg: err.data.message });
         }
     };
+
+    if (isLoading) {
+        return <AuthenticateLoader title={"Logging In..."} />;
+    }
 
     return (
         <ScrollView>

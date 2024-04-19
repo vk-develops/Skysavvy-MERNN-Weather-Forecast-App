@@ -35,7 +35,7 @@ const RegisterScreen = ({ navigation }) => {
     };
 
     if (isLoading) {
-        return <AuthenticateLoader title={"Registering"} />;
+        return <AuthenticateLoader title={"Registering..."} />;
     }
 
     return (
