@@ -2,9 +2,10 @@ import { View, Text, ScrollView, Image, ActivityIndicator } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useEffect, useState } from "react";
 import WeatherInfo from "../../Components/WeatherInfo";
-import { weatherImg } from "../../Data/weatherImg";
 import HourlyForecast from "../../Components/HourlyForecast";
 import ReturnImgString from "../../Components/ReturnImgString";
+import { newWeatherImg } from "../../Data/newWeatherImg";
+import Loader from "../../Components/Loader";
 
 const WeatherDetailScreen = ({ route, navigation }) => {
     const { locName } = route.params;
@@ -35,13 +36,17 @@ const WeatherDetailScreen = ({ route, navigation }) => {
     }, []);
 
     if (!weatherData) {
-        return null;
+        return <Loader />;
     }
 
     const location = weatherData.location;
     const current = weatherData.current;
 
     const { image } = ReturnImgString(weatherData);
+
+    const uri =
+        newWeatherImg[image]?.uri ||
+        `https:${weatherData.current.condition.icon}`;
 
     return (
         <ScrollView className="flex-1">
@@ -63,11 +68,12 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                                     className="text-2xl text-white text-center"
                                     style={{ fontFamily: "plexSemiBold" }}
                                 >
-                                    {location.name}, {location.region}
+                                    {location.name}, {location.region},{" "}
+                                    {location.country}
                                 </Text>
                                 <Text
                                     style={{ fontFamily: "plexMedium" }}
-                                    className="text-[15px] text-slate-300 text-center pt-2"
+                                    className="text-[15px] text-slate-300 text-center pt-4"
                                 >
                                     Today, 15 Dec
                                 </Text>
@@ -75,7 +81,7 @@ const WeatherDetailScreen = ({ route, navigation }) => {
                             <View className="flex items-center justify-center mt-10">
                                 <Image
                                     className="h-[260px] w-[280px]"
-                                    source={weatherImg[image]}
+                                    source={{ uri }}
                                 />
                             </View>
                             <View className="pt-4">

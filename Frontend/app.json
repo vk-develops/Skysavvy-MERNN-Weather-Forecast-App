@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Frontend",
+    "name": "SkySavvy Weather Forecast",
     "slug": "Frontend",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#23227B"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -21,13 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.vimal_kumar.Frontend"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "281fb10f-477d-4f6b-8f93-b1eaacd04fcf"
+      }
+    }
   }
 }

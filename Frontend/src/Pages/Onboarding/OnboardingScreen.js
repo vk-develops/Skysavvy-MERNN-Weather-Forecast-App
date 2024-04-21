@@ -1,7 +1,13 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import {
+    View,
+    Text,
+    ScrollView,
+    Image,
+    TouchableOpacity,
+    Dimensions,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import OnboardingImg from "../../../assets/Images/OnboardingImg.png";
 import { styles } from "../../Styles/style";
 
 const OnboardingScreen = ({ navigation }) => {
@@ -17,7 +23,13 @@ const OnboardingScreen = ({ navigation }) => {
             >
                 <View className="px-4 flex items-center justify-center">
                     <Image
-                        source={OnboardingImg}
+                        style={{
+                            width: "100%",
+                            height: Dimensions.get("window").width - 70,
+                        }}
+                        source={{
+                            uri: "https://vk-develops-static-assets.vercel.app/Public/Images/OnboardingImg.png",
+                        }}
                         className={`w-full`}
                     />
                     <View>

@@ -1,22 +1,25 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-import { weatherImg } from "../Data/weatherImg";
 import ReturnHourlyImgString from "./ReturnHourlyImgString";
+import { newWeatherImg } from "../Data/newWeatherImg";
 
-const HourlyForecastCard = ({ forecast }) => {
-    const time = forecast.time.split(" ")[1];
+const HourlyForecastCard = ({ forecast, time }) => {
+    const curtime = forecast.time.split(" ")[1];
 
-    const date = new Date();
-    const hour = date.getHours();
+    // const date = new Date();
+    // const hour = date.getHours();
 
     const { image } = ReturnHourlyImgString(forecast);
+
+    const uri = newWeatherImg[image]?.uri || `https:${forecast.condition.icon}`;
 
     return (
         <View className="flex items-center justify-center flex-row gap-2 mr-3">
             <View
                 style={{
                     backgroundColor:
-                        Number(time.split(":")[0]) === Number(hour)
+                        Number(curtime.split(":")[0]) ===
+                        Number(time.split(":")[0])
                             ? "rgba(133, 77, 14, 1)"
                             : "rgba(255, 255, 255, 0.3)",
                 }}
@@ -26,13 +29,13 @@ const HourlyForecastCard = ({ forecast }) => {
                     style={{ fontFamily: "plexMedium" }}
                     className="text-white text-base text-center"
                 >
-                    {time}
-                    {time.split(":")[0] < 12 ? `am` : `pm`}
+                    {curtime}
+                    {curtime.split(":")[0] < 12 ? `am` : `pm`}
                 </Text>
                 <View className="flex items-center justify-center mt-3">
                     <Image
                         className="w-[50px] h-[50px]"
-                        source={weatherImg[image]}
+                        source={{ uri }}
                     />
                     <Text
                         style={{ fontFamily: "plexMedium" }}

@@ -1,7 +1,6 @@
 import { View, Text, ScrollView, ActivityIndicator, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { weatherImg } from "../../Data/weatherImg";
 
 const SunDetails = ({ sunRise, sunSet }) => {
     return (
@@ -26,7 +25,9 @@ const SunDetails = ({ sunRise, sunSet }) => {
             <View className="px-2">
                 <Image
                     className="w-12 h-12"
-                    source={weatherImg["SunnyDay"]}
+                    source={{
+                        uri: "https://vk-develops-static-assets.vercel.app/Public/Images/WeatherImages/WeatherClearSky-Day.png",
+                    }}
                 />
             </View>
             <View>
@@ -71,7 +72,9 @@ const MoonDetails = ({ moonRise, moonSet, moonPhase }) => {
                 <View className="px-2">
                     <Image
                         className="w-12 h-12"
-                        source={weatherImg["ClearNight"]}
+                        source={{
+                            uri: "https://vk-develops-static-assets.vercel.app/Public/Images/WeatherImages/WeatherClearSky-Night.png",
+                        }}
                     />
                 </View>
                 <View>

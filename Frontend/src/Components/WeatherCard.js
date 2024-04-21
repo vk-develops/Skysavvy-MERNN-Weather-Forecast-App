@@ -1,12 +1,14 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { weatherImg } from "../Data/weatherImg";
+import ReturnImgString from "./ReturnImgString";
+import { newWeatherImg } from "../Data/newWeatherImg";
 
 const WeatherCard = ({ onPress, weatherData }) => {
-    const isDay = weatherData.current.is_day === 1;
-    const timeOfDay = isDay ? "Day" : "Night";
-    const image =
-        weatherData.current.condition.text.replace(/\s/g, "") + timeOfDay;
+    const { image } = ReturnImgString(weatherData);
+
+    const uri =
+        newWeatherImg[image]?.uri ||
+        `https:${weatherData.current.condition.icon}`;
 
     return (
         <TouchableOpacity
@@ -23,7 +25,7 @@ const WeatherCard = ({ onPress, weatherData }) => {
             </Text>
             <View className="absolute top-5 right-5">
                 <Image
-                    source={weatherImg[image]}
+                    source={{ uri }}
                     className="h-[160px] w-[160px]"
                 />
             </View>
@@ -48,7 +50,9 @@ const WeatherCard = ({ onPress, weatherData }) => {
                         className="text-lg text-white"
                     >
                         {weatherData.location.name},{" "}
-                        {weatherData.location.region}
+                        {weatherData.location.region.length > 12
+                            ? `${weatherData.location.region.slice(0, 12)}...`
+                            : weatherData.location.region}
                     </Text>
                     <Text
                         style={{ fontFamily: "plexMedium" }}

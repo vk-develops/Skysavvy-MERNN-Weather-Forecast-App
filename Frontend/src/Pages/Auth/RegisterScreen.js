@@ -8,10 +8,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import LoginBg from "../../../assets/Images/Login-Bg.png";
 import { useRegisterMutation } from "../../Redux/Services/usersAuthApiSlice";
 import { useErrorToast, useSuccessToast } from "../../Hooks/useToast";
 import { styles } from "../../Styles/style";
+import AuthenticateLoader from "../../Components/AuthenticateLoader";
 
 const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState("");
@@ -34,6 +34,10 @@ const RegisterScreen = ({ navigation }) => {
         }
     };
 
+    if (isLoading) {
+        return <AuthenticateLoader title={"Registering..."} />;
+    }
+
     return (
         <ScrollView className="flex-1">
             <LinearGradient
@@ -46,7 +50,9 @@ const RegisterScreen = ({ navigation }) => {
             >
                 <ImageBackground
                     imageStyle={{ opacity: 0.4 }}
-                    source={LoginBg}
+                    source={{
+                        uri: "https://vk-develops-static-assets.vercel.app/Public/Images/Login-Bg.png",
+                    }}
                     resizeMode="cover"
                     className="flex-1 -m-12 justify-center"
                 >

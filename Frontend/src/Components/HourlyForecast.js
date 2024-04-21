@@ -1,10 +1,11 @@
-import { View, Text, ActivityIndicator } from "react-native";
+import { ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import HourlyForecastCard from "./HourlyForecastCard";
 
 const HourlyForecast = ({ locName, weatherData }) => {
     const [hourlyWeatherForecast, setHourlyWeatherForecast] = useState([]);
+    const [time, setTime] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchHourlyForecast = async () => {
@@ -17,6 +18,7 @@ const HourlyForecast = ({ locName, weatherData }) => {
                 const data = await response.json();
                 const hourData = data.forecast.forecastday[0].hour;
                 setHourlyWeatherForecast(hourData);
+                setTime(data.location.localtime.split(" ")[1]);
             }
         } catch (error) {
             console.log(error.message);
@@ -41,6 +43,7 @@ const HourlyForecast = ({ locName, weatherData }) => {
                     <HourlyForecastCard
                         key={index}
                         forecast={forecast}
+                        time={time}
                     />
                 ))
             ) : null}
